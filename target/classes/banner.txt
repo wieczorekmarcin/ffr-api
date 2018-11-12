@@ -1,8 +1,25 @@
-  ______   ______   _____                         _
- |  ____| |  ____| |  __ \        /\             (_)
- | |__    | |__    | |__) |      /  \     _ __    _
- |  __|   |  __|   |  _  /      / /\ \   | '_ \  | |
- | |      | |      | | \ \     / ____ \  | |_) | | |
- |_|      |_|      |_|  \_\   /_/    \_\ | .__/  |_|
-                                         | |
-                                         |_|
+
+
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFRRRRRRRRRRRRRRRRR                       AAA                                     iiii
+F::::::::::::::::::::FF::::::::::::::::::::FR::::::::::::::::R                     A:::A                                   i::::i
+F::::::::::::::::::::FF::::::::::::::::::::FR::::::RRRRRR:::::R                   A:::::A                                   iiii
+FF::::::FFFFFFFFF::::FFF::::::FFFFFFFFF::::FRR:::::R     R:::::R                 A:::::::A
+  F:::::F       FFFFFF  F:::::F       FFFFFF  R::::R     R:::::R                A:::::::::A           ppppp   ppppppppp   iiiiiii
+  F:::::F               F:::::F               R::::R     R:::::R               A:::::A:::::A          p::::ppp:::::::::p  i:::::i
+  F::::::FFFFFFFFFF     F::::::FFFFFFFFFF     R::::RRRRRR:::::R               A:::::A A:::::A         p:::::::::::::::::p  i::::i
+  F:::::::::::::::F     F:::::::::::::::F     R:::::::::::::RR               A:::::A   A:::::A        pp::::::ppppp::::::p i::::i
+  F:::::::::::::::F     F:::::::::::::::F     R::::RRRRRR:::::R             A:::::A     A:::::A        p:::::p     p:::::p i::::i
+  F::::::FFFFFFFFFF     F::::::FFFFFFFFFF     R::::R     R:::::R           A:::::AAAAAAAAA:::::A       p:::::p     p:::::p i::::i
+  F:::::F               F:::::F               R::::R     R:::::R          A:::::::::::::::::::::A      p:::::p     p:::::p i::::i
+  F:::::F               F:::::F               R::::R     R:::::R         A:::::AAAAAAAAAAAAA:::::A     p:::::p    p::::::p i::::i
+FF:::::::FF           FF:::::::FF           RR:::::R     R:::::R        A:::::A             A:::::A    p:::::ppppp:::::::pi::::::i
+F::::::::FF           F::::::::FF           R::::::R     R:::::R       A:::::A               A:::::A   p::::::::::::::::p i::::::i
+F::::::::FF           F::::::::FF           R::::::R     R:::::R      A:::::A                 A:::::A  p::::::::::::::pp  i::::::i
+FFFFFFFFFFF           FFFFFFFFFFF           RRRRRRRR     RRRRRRR     AAAAAAA                   AAAAAAA p::::::pppppppp    iiiiiiii
+                                                                                                       p:::::p
+                                                                                                       p:::::p
+                                                                                                      p:::::::p
+                                                                                                      p:::::::p
+                                                                                                      p:::::::p
+                                                                                                      ppppppppp
+                                                                                                                                  
