@@ -52,16 +52,19 @@ public class AuthenticationRestController {
     @RequestMapping(path = "/auth", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
         String authToken = request.getHeader(tokenHeader);
+        if (authToken != null && !authToken.isEmpty()){
         final String token = authToken.substring(7);
-        String username = jwtTokenUtil.getUsernameFromToken(token);
-        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
+            String username = jwtTokenUtil.getUsernameFromToken(token);
+            JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
 
-        if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())) {
-            String refreshedToken = jwtTokenUtil.refreshToken(token);
-            return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
-        } else {
-            return ResponseEntity.badRequest().body(null);
+            if (jwtTokenUtil.canTokenBeRefreshed(token, user.getLastPasswordResetDate())) {
+                String refreshedToken = jwtTokenUtil.refreshToken(token);
+                return ResponseEntity.ok(new JwtAuthenticationResponse(refreshedToken));
+            } else {
+                return ResponseEntity.badRequest().body(null);
+            }
         }
+        return ResponseEntity.badRequest().body(null);
     }
 
     @ExceptionHandler({AuthenticationException.class})
