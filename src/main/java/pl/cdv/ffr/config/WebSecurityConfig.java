@@ -16,9 +16,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import pl.cdv.ffr.security.JwtAuthenticationEntryPoint;
-import pl.cdv.ffr.security.JwtAuthorizationTokenFilter;
-import pl.cdv.ffr.security.service.JwtUserDetailsService;
+import pl.cdv.ffr.service.JwtAuthenticationEntryPoint;
+import pl.cdv.ffr.service.JwtAuthorizationTokenFilter;
+import pl.cdv.ffr.service.JwtUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
