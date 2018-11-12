@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${jwt.header}")
     private String tokenHeader;
 
-    @Value("${jwt.route.authentication.path}")
+    @Value("/auth")
     private String authenticationPath;
 
     @Autowired
@@ -96,24 +96,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers(
                 HttpMethod.POST,
                 authenticationPath
-            )
-
-            // allow anonymous resource requests
-            .and()
-            .ignoring()
-            .antMatchers(
-                HttpMethod.GET,
-                "/",
-                "/*.html",
-                "/favicon.ico",
-                "/**/*.html",
-                "/**/*.css",
-                "/**/*.js"
-            )
-
-            // Un-secure H2 Database (for testing purposes, H2 console shouldn't be unprotected in production)
-            .and()
-            .ignoring()
-            .antMatchers("/h2-console/**/**");
+            );
     }
 }
