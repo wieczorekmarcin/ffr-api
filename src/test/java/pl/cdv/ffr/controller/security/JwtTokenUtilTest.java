@@ -11,7 +11,7 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.util.ReflectionTestUtils;
 import pl.cdv.ffr.service.JwtTokenUtil;
-import pl.cdv.ffr.service.JwtUser;
+import pl.cdv.ffr.model.JwtUser;
 
 import java.util.Date;
 

@@ -14,7 +14,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.service.JwtAuthenticationRequest;
 import pl.cdv.ffr.service.JwtTokenUtil;
-import pl.cdv.ffr.service.JwtUser;
+import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.service.JwtAuthenticationResponse;
 
 import javax.servlet.http.HttpServletRequest;
@@ -50,7 +50,8 @@ public class AuthenticationRestController {
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    @RequestMapping(path = "/auth", method = RequestMethod.GET)
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @RequestMapping(path = "/refresh", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
         String authToken = request.getHeader(tokenHeader);
         if (authToken != null && !authToken.isEmpty()){

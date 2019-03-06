@@ -3,6 +3,7 @@ package pl.cdv.ffr.service;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import pl.cdv.ffr.model.Authority;
+import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.model.User;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public final class JwtUserFactory {
                 user.getFirstname(),
                 user.getLastname(),
                 user.getEmail(),
+                user.getUserType(),
                 user.getPassword(),
                 mapToGrantedAuthorities(user.getAuthorities()),
                 user.getEnabled(),

@@ -15,7 +15,7 @@ import pl.cdv.ffr.model.Authority;
 import pl.cdv.ffr.model.AuthorityName;
 import pl.cdv.ffr.model.User;
 import pl.cdv.ffr.service.JwtTokenUtil;
-import pl.cdv.ffr.service.JwtUser;
+import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.service.JwtUserDetailsService;
 import pl.cdv.ffr.service.JwtUserFactory;
 

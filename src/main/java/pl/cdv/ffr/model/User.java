@@ -41,6 +41,10 @@ public class User {
     @Size(min = 4, max = 50)
     private String email;
 
+    @Column(name = "USER_TYPE", length = 50)
+    @Size(min = 4, max = 50)
+    private UserType userType;
+
     @Column(name = "ENABLED")
     @NotNull
     private Boolean enabled;
@@ -103,6 +107,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public UserType getUserType() {
+        return userType;
+    }
+
+    public void setUserType(UserType userType) {
+        this.userType = userType;
     }
 
     public Boolean getEnabled() {

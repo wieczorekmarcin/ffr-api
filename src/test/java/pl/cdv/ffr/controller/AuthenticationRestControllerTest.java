@@ -17,6 +17,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 import pl.cdv.ffr.model.Authority;
 import pl.cdv.ffr.model.AuthorityName;
+import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.model.User;
 import pl.cdv.ffr.service.*;
 

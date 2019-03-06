@@ -1,9 +1,6 @@
 package pl.cdv.ffr.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.Person;
 
 import java.util.ArrayList;
@@ -19,11 +16,13 @@ public class PersonController {
         persons.add(new Person("Foo", "Bar"));
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(path = "/persons", method = RequestMethod.GET)
     public static List<Person> getPersons() {
         return persons;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(path = "/persons/{name}", method = RequestMethod.GET)
     public static Person getPerson(@PathVariable("name") String name) {
         return persons.stream()
