@@ -1,4 +1,4 @@
-package pl.cdv.ffr.service;
+package pl.cdv.ffr.utils;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

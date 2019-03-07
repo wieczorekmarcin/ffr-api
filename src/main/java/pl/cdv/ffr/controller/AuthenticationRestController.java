@@ -1,4 +1,4 @@
-package pl.cdv.ffr.controller.security;
+package pl.cdv.ffr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,10 +12,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
-import pl.cdv.ffr.service.JwtAuthenticationRequest;
-import pl.cdv.ffr.service.JwtTokenUtil;
+import pl.cdv.ffr.exception.AuthenticationException;
+import pl.cdv.ffr.model.JwtAuthenticationRequest;
+import pl.cdv.ffr.service.AuthenticationService;
+import pl.cdv.ffr.utils.JwtTokenUtil;
 import pl.cdv.ffr.model.JwtUser;
-import pl.cdv.ffr.service.JwtAuthenticationResponse;
+import pl.cdv.ffr.model.JwtAuthenticationResponse;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
@@ -31,6 +33,8 @@ public class AuthenticationRestController {
 
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
+
+    private AuthenticationService authenticationService;
 
     @Autowired
     @Qualifier("jwtUserDetailsService")

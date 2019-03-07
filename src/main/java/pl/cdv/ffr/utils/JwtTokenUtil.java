@@ -1,4 +1,4 @@
-package pl.cdv.ffr.service;
+package pl.cdv.ffr.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Clock;

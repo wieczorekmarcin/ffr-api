@@ -1,4 +1,4 @@
-package pl.cdv.ffr.service;
+package pl.cdv.ffr.model;
 
 import java.io.Serializable;
 

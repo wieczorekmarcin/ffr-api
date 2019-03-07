@@ -1,4 +1,4 @@
-package pl.cdv.ffr.controller.security;
+package pl.cdv.ffr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import pl.cdv.ffr.service.JwtTokenUtil;
+import pl.cdv.ffr.utils.JwtTokenUtil;
 import pl.cdv.ffr.model.JwtUser;
 
 import javax.servlet.http.HttpServletRequest;

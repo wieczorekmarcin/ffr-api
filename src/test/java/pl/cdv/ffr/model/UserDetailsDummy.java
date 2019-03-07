@@ -1,4 +1,4 @@
-package pl.cdv.ffr.controller.security;
+package pl.cdv.ffr.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

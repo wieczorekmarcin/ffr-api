@@ -1,4 +1,4 @@
-package pl.cdv.ffr.controller.security;
+package pl.cdv.ffr.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;

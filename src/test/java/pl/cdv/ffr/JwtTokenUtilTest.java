@@ -1,4 +1,4 @@
-package pl.cdv.ffr.controller.security;
+package pl.cdv.ffr;
 
 import io.jsonwebtoken.Clock;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -10,7 +10,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.test.util.ReflectionTestUtils;
-import pl.cdv.ffr.service.JwtTokenUtil;
+import pl.cdv.ffr.model.UserDetailsDummy;
+import pl.cdv.ffr.utils.JwtTokenUtil;
 import pl.cdv.ffr.model.JwtUser;
 
 import java.util.Date;

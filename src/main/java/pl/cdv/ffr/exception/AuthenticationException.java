@@ -1,4 +1,4 @@
-package pl.cdv.ffr.controller.security;
+package pl.cdv.ffr.exception;
 
 public class AuthenticationException extends RuntimeException {
     public AuthenticationException(String message, Throwable cause) {
