@@ -13,6 +13,7 @@ import pl.cdv.ffr.model.JwtUser;
 
 import javax.servlet.http.HttpServletRequest;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class UserRestController {
 
@@ -26,7 +27,6 @@ public class UserRestController {
     @Qualifier("jwtUserDetailsService")
     private UserDetailsService userDetailsService;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(path = "/user", method = RequestMethod.GET)
     public JwtUser getAuthenticatedUser(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader).substring(7);

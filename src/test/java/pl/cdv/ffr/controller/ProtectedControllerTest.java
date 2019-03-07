@@ -19,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MethodProtectedRestControllerTest {
+public class ProtectedControllerTest {
 
     private MockMvc mvc;
 

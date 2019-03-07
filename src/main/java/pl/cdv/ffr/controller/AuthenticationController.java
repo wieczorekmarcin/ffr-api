@@ -14,7 +14,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.exception.AuthenticationException;
 import pl.cdv.ffr.model.JwtAuthenticationRequest;
-import pl.cdv.ffr.service.AuthenticationService;
 import pl.cdv.ffr.utils.JwtTokenUtil;
 import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.model.JwtAuthenticationResponse;
@@ -22,8 +21,9 @@ import pl.cdv.ffr.model.JwtAuthenticationResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Objects;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
-public class AuthenticationRestController {
+public class AuthenticationController {
 
     @Value("${jwt.header}")
     private String tokenHeader;
@@ -34,13 +34,10 @@ public class AuthenticationRestController {
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
 
-    private AuthenticationService authenticationService;
-
     @Autowired
     @Qualifier("jwtUserDetailsService")
     private UserDetailsService userDetailsService;
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(path = "/auth", method = RequestMethod.POST)
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtAuthenticationRequest authenticationRequest) throws AuthenticationException {
 
@@ -54,7 +51,6 @@ public class AuthenticationRestController {
         return ResponseEntity.ok(new JwtAuthenticationResponse(token));
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @RequestMapping(path = "/refresh", method = RequestMethod.GET)
     public ResponseEntity<?> refreshAndGetAuthenticationToken(HttpServletRequest request) {
         String authToken = request.getHeader(tokenHeader);
