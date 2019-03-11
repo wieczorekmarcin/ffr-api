@@ -40,7 +40,7 @@ public class PersonRestControllerTest {
     @Test
     public void shouldGetUnauthorizedWithoutRole() throws Exception{
 
-        this.mvc.perform(get("/persons"))
+        this.mvc.perform(get("/property"))
                 .andExpect(status().isUnauthorized());
     }
 
@@ -48,7 +48,7 @@ public class PersonRestControllerTest {
     @WithMockUser(roles = "USER")
     public void getPersonsSuccessfullyWithUserRole() throws Exception{
 
-        this.mvc.perform(get("/persons"))
+        this.mvc.perform(get("/property"))
                 .andExpect(status().is2xxSuccessful());
     }
 
