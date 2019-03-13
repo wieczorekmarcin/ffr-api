@@ -18,9 +18,9 @@ public class Property {
     @NotNull
     private String street;
 
-    @Column(name = "NUMBER")
+    @Column(name = "STREET_NUMBER")
     @NotNull
-    private String number;
+    private String streetNumber;
 
     @Column(name = "CITY")
     @NotNull
@@ -40,10 +40,10 @@ public class Property {
     public Property() {
     }
 
-    public Property(Long id, String street, String number, String city, String yardage, List<Flat> flats) {
+    public Property(Long id, String street, String streetNumber, String city, String yardage, List<Flat> flats) {
         this.id = id;
         this.street = street;
-        this.number = number;
+        this.streetNumber = streetNumber;
         this.city = city;
         this.yardage = yardage;
         this.flats = flats;
@@ -65,12 +65,12 @@ public class Property {
         this.street = street;
     }
 
-    public String getNumber() {
-        return number;
+    public String getStreetNumber() {
+        return streetNumber;
     }
 
-    public void setNumber(String number) {
-        this.number = number;
+    public void setStreetNumber(String number) {
+        this.streetNumber = streetNumber;
     }
 
     public String getCity() {

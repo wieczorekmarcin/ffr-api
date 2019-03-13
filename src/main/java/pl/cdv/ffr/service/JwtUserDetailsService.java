@@ -1,7 +1,6 @@
 package pl.cdv.ffr.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
@@ -20,7 +19,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public JwtUser loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
 
         if (user == null) {
@@ -46,23 +45,32 @@ public class JwtUserDetailsService implements UserDetailsService {
                 .map(user -> JwtUserFactory.create(user)).collect(Collectors.toList());
     }
 
-    public JwtUser findRentierById(String id) {
-        return userRepository.findAll().stream()
-                .filter(user -> user.getUserType() == UserType.rentier)
-                .filter(user -> user.getId().equals(Long.parseLong(id)))
-                .map(user -> JwtUserFactory.create(user)).collect(Collectors.toList()).get(0);
-    }
-
     public List<JwtUser> findAllTenats() {
         return userRepository.findAll().stream()
                 .filter(user -> user.getUserType() == UserType.tenat)
                 .map(user -> JwtUserFactory.create(user)).collect(Collectors.toList());
     }
 
-    public JwtUser findTenatById(String id) {
-        return userRepository.findAll().stream()
-                .filter(user -> user.getUserType() == UserType.tenat)
-                .filter(user -> user.getId().equals(Long.parseLong(id)))
-                .map(user -> JwtUserFactory.create(user)).collect(Collectors.toList()).get(0);
+    public User createUser(User user) {
+        return userRepository.save(user);
+    }
+
+    public User updateUser(User newUser, String id) {
+        return userRepository.findById(Long.parseLong(id))
+                .map(user -> {
+                    user.setEmail(newUser.getEmail());
+                    user.setUsername(newUser.getUsername());
+                    user.setFirstname(newUser.getFirstname());
+                    user.setLastname(newUser.getLastname());
+                    return userRepository.save(user);
+                })
+                .orElseGet(() -> {
+                    newUser.setId(Long.parseLong(id));
+                    return userRepository.save(newUser);
+                });
+    }
+
+    public void deleteUser(String id) {
+        userRepository.deleteById(Long.parseLong(id));
     }
 }

@@ -21,7 +21,21 @@ public class PropertyController {
 
     @RequestMapping(path = "/properties/{id}", method = RequestMethod.GET)
     public Property getProperty(@PathVariable("id") String id) {
-        Long longId = Long.parseLong(id);
-        return propertyService.findPropertyById(longId);
+        return propertyService.findPropertyById(id);
+    }
+
+    @RequestMapping(path = "/properties", method = RequestMethod.POST)
+    public Property createProperty(@RequestBody Property property) {
+        return propertyService.createProperty(property);
+    }
+
+    @RequestMapping(path = "/properties/{id}", method = RequestMethod.PUT)
+    public Property updateProperty(@RequestBody Property property, @PathVariable("id") String id) {
+        return propertyService.updateProperty(property, id);
+    }
+
+    @RequestMapping(path = "/properties/{id}", method = RequestMethod.DELETE)
+    public void deleteProperty(@PathVariable("id") String id) {
+        propertyService.deleteProperty(id);
     }
 }

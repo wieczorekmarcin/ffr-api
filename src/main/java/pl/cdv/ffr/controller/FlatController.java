@@ -21,7 +21,21 @@ public class FlatController {
 
     @RequestMapping(path = "/flats/{id}", method = RequestMethod.GET)
     public Flat getFlat(@PathVariable("id") String id) {
-        Long longId = Long.parseLong(id);
-        return flatService.findFlatById(longId);
+        return flatService.findFlatById(id);
+    }
+
+    @RequestMapping(path = "/flats", method = RequestMethod.POST)
+    public Flat createFlat(@RequestBody Flat flat) {
+        return flatService.createFlat(flat);
+    }
+
+    @RequestMapping(path = "/flats/{id}", method = RequestMethod.PUT)
+    public Flat updateFlat(@RequestBody Flat flat, @PathVariable("id") String id) {
+        return flatService.updateFlat(flat, id);
+    }
+
+    @RequestMapping(path = "/flats/{id}", method = RequestMethod.DELETE)
+    public void deleteFlat(@PathVariable("id") String id) {
+        flatService.deleteFlat(id);
     }
 }

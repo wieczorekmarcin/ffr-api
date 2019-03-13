@@ -1,11 +1,10 @@
 package pl.cdv.ffr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.JwtUser;
+import pl.cdv.ffr.model.User;
 import pl.cdv.ffr.service.JwtUserDetailsService;
 import pl.cdv.ffr.utils.JwtTokenUtil;
 
@@ -23,17 +22,13 @@ public class UserController {
     private JwtTokenUtil jwtTokenUtil;
 
     @Autowired
-    @Qualifier("jwtUserDetailsService")
-    private UserDetailsService userDetailsService;
-
-    @Autowired
     private  JwtUserDetailsService userService;
 
     @RequestMapping(path = "/userInfo", method = RequestMethod.GET)
     public JwtUser getUserInfo(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader).substring(7);
         String username = jwtTokenUtil.getUsernameFromToken(token);
-        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
+        JwtUser user = userService.loadUserByUsername(username);
         return user;
     }
 
@@ -45,6 +40,21 @@ public class UserController {
     @RequestMapping(path = "/users/{id}", method = RequestMethod.GET)
     public JwtUser getUserById(@PathVariable("id") String id) {
         return userService.findUserById(id);
+    }
+
+    @RequestMapping(path = "/users", method = RequestMethod.POST)
+    public User createUser(@RequestBody User user) {
+        return userService.createUser(user);
+    }
+
+    @RequestMapping(path = "/users/{id}", method = RequestMethod.PUT)
+    public User updateUser(@RequestBody User user, @PathVariable("id") String id) {
+        return userService.updateUser(user, id);
+    }
+
+    @RequestMapping(path = "/users/{id}", method = RequestMethod.DELETE)
+    public void deleteUser(@PathVariable("id") String id) {
+        userService.deleteUser(id);
     }
 
     @RequestMapping(path = "/rentiers", method = RequestMethod.GET)

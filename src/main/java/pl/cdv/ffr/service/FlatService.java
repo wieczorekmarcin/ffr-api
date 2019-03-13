@@ -18,8 +18,33 @@ public class FlatService {
         return flatRepository.findAll();
     }
 
-    public Flat findFlatById(Long id) {
-        Optional<Flat> byId = flatRepository.findById(id);
+    public Flat findFlatById(String id) {
+        Optional<Flat> byId = flatRepository.findById(Long.parseLong(id));
         return byId.get();
+    }
+
+    public Flat createFlat(Flat flat) {
+        return flatRepository.save(flat);
+    }
+
+    public Flat updateFlat(Flat newFlat, String id) {
+        return flatRepository.findById(Long.parseLong(id))
+                .map(flat -> {
+                    flat.setDescription(newFlat.getDescription());
+                    flat.setFlatNumber(newFlat.getFlatNumber());
+                    flat.setForRent(newFlat.isForRent());
+                    flat.setImages(newFlat.getImages());
+                    flat.setPricePerYard(newFlat.getPricePerYard());
+                    flat.setTitle(newFlat.getTitle());
+                    return flatRepository.save(flat);
+                })
+                .orElseGet(() -> {
+                    newFlat.setId(Long.parseLong(id));
+                    return flatRepository.save(newFlat);
+                });
+    }
+
+    public void deleteFlat(String id) {
+        flatRepository.deleteById(Long.parseLong(id));
     }
 }
