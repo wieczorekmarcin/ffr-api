@@ -1,16 +1,40 @@
 package pl.cdv.ffr.model;
 
-import io.swagger.annotations.ApiModel;
-
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@ApiModel
+@Entity
+@Table(name = "PROPERTY")
 public class Property {
+
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "property_seq")
+    @SequenceGenerator(name = "property_seq", sequenceName = "property_seq", allocationSize = 1)
     private Long id;
+
+    @Column(name = "STREET")
+    @NotNull
     private String street;
+
+    @Column(name = "NUMBER")
+    @NotNull
     private String number;
+
+    @Column(name = "CITY")
+    @NotNull
     private String city;
+
+    @Column(name = "YARDAGE")
+    @NotNull
     private String yardage;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "PROPERTY_FLAT",
+            joinColumns = {@JoinColumn(name = "PROPERTY_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "FLAT_ID", referencedColumnName = "ID")})
     private List<Flat> flats;
 
     public Property() {

@@ -1,8 +1,20 @@
 package pl.cdv.ffr.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "FLAT")
 public class Flat {
 
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "flat_seq")
+    @SequenceGenerator(name = "flat_seq", sequenceName = "flat_seq", allocationSize = 1)
     private Long id;
+
+    @Column(name = "NUMBER")
+    @NotNull
     private String number;
 
     public Flat() {

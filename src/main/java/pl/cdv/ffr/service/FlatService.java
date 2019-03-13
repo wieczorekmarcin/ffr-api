@@ -1,0 +1,25 @@
+package pl.cdv.ffr.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import pl.cdv.ffr.model.Flat;
+import pl.cdv.ffr.repository.FlatRepository;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class FlatService {
+
+    @Autowired
+    FlatRepository flatRepository;
+
+    public List<Flat> findAllFlats() {
+        return flatRepository.findAll();
+    }
+
+    public Flat findFlatById(Long id) {
+        Optional<Flat> byId = flatRepository.findById(id);
+        return byId.get();
+    }
+}
