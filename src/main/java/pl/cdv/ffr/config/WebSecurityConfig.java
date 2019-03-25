@@ -16,9 +16,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
+import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import pl.cdv.ffr.service.JwtUserDetailsService;
 import pl.cdv.ffr.utils.JwtAuthenticationEntryPoint;
 import pl.cdv.ffr.utils.JwtAuthorizationTokenFilter;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -59,10 +64,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
+    @Bean
+    CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(Arrays.asList("*"));
+        configuration.setAllowedMethods(Arrays.asList("GET","POST", "PUT", "DELETE"));
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-            // we don't need CSRF because our token is invulnerable
+                // cors config
+            .cors().and()
+                // we don't need CSRF because our token is invulnerable
             .csrf().disable()
 
             .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
@@ -96,4 +113,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 authenticationPath
             );
     }
+
+
 }
