@@ -12,9 +12,7 @@ public class TestService {
 
     @Autowired
     TestRepository testRepository;
-
-
-
+    
     public List<Test> findAllTests() {
         return testRepository.findAll();
     }
@@ -22,6 +20,4 @@ public class TestService {
     public Test createFlat(Test test) {
         return testRepository.save(test);
     }
-
-
 }

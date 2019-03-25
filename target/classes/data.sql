@@ -20,6 +20,10 @@ INSERT INTO IMAGE (ID, URL) VALUES (1, 'https://www.barrespropertytrading.com/im
 INSERT INTO IMAGE (ID, URL) VALUES (2, 'https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg');
 INSERT INTO IMAGE (ID, URL) VALUES (3, 'https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg');
 
+INSERT INTO TEST (ID, VALUE) VALUES (1, 'asddsadasda');
+INSERT INTO TEST (ID, VALUE) VALUES (2, 'dsdsadsa');
+
+
 INSERT INTO FLAT_IMAGE (FLAT_ID, IMAGE_ID) VALUES (1, 1);
 INSERT INTO FLAT_IMAGE (FLAT_ID, IMAGE_ID) VALUES (1, 2);
 INSERT INTO FLAT_IMAGE (FLAT_ID, IMAGE_ID) VALUES (1, 3);

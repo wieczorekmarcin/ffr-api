@@ -10,8 +10,7 @@ public class Property {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "property_seq")
-    @SequenceGenerator(name = "property_seq", sequenceName = "property_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "STREET")

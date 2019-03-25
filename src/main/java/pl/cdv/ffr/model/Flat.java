@@ -9,8 +9,7 @@ public class Flat {
 
     @Id
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "flat_seq")
-    @SequenceGenerator(name = "flat_seq", sequenceName = "flat_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "FLAT_NUMBER")

@@ -7,11 +7,11 @@ import javax.persistence.*;
 public class Test {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "value")
+    @Column(name = "VALUE")
     private String value;
 
     public Test(String value) {
