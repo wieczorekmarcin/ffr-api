@@ -1,6 +1,7 @@
 package pl.cdv.ffr.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "FLAT")
@@ -15,8 +16,12 @@ public class Flat {
     @Column(name = "FLAT_NUMBER")
     private String flatNumber;
 
-    @Column(name = "IMAGES", columnDefinition="TEXT")
-    private String images;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+    name = "FLAT_IMAGE",
+    joinColumns = {@JoinColumn(name = "FLAT_ID", referencedColumnName = "ID")},
+    inverseJoinColumns = {@JoinColumn(name = "IMAGE_ID", referencedColumnName = "ID")})
+    private List<Image> images;
 
     @Column(name = "PRICE_PER_YARD")
     private String pricePerYard;
@@ -33,7 +38,7 @@ public class Flat {
     public Flat() {
     }
 
-    public Flat(String flatNumber, String images, String pricePerYard, String title, String description, boolean forRent) {
+    public Flat(String flatNumber, List<Image> images, String pricePerYard, String title, String description, boolean forRent) {
         this.flatNumber = flatNumber;
         this.images = images;
         this.pricePerYard = pricePerYard;
@@ -58,11 +63,11 @@ public class Flat {
         this.flatNumber = flatNumber;
     }
 
-    public String getImages() {
+    public List<Image> getImages() {
         return images;
     }
 
-    public void setImages(String images) {
+    public void setImages(List<Image> images) {
         this.images = images;
     }
 

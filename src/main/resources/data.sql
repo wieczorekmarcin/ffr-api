@@ -9,12 +9,18 @@ INSERT INTO AUTHORITY (ID, NAME) VALUES (2, 'ROLE_ADMIN');
 INSERT INTO PROPERTY (ID, STREET, STREET_NUMBER, CITY, YARDAGE) VALUES (1, 'ul. Kwiatowa', '32', 'Poznań', '502m2');
 INSERT INTO PROPERTY (ID, STREET, STREET_NUMBER, CITY, YARDAGE) VALUES (2, 'ul. Testowa', '18', 'Luboń', '612m2');
 
-INSERT INTO FLAT (ID, FLAT_NUMBER, IMAGES, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (1, '13', 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg, https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg, https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg', '9000', 'testowy tytuł', 'testowy opis', true );
-INSERT INTO FLAT (ID, FLAT_NUMBER, IMAGES, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (2, '14', 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg, https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg, https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg', '9000', 'testowy tytuł', 'testowy opis', true );
-INSERT INTO FLAT (ID, FLAT_NUMBER, IMAGES, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (3, '15', 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg, https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg, https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg', '9000', 'testowy tytuł', 'testowy opis', true );
-INSERT INTO FLAT (ID, FLAT_NUMBER, IMAGES, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (4, '4', 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg, https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg, https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg', '9000', 'testowy tytuł', 'testowy opis', true );
-INSERT INTO FLAT (ID, FLAT_NUMBER, IMAGES, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (5, '5', 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg, https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg, https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg', '9000', 'testowy tytuł', 'testowy opis', true );
-INSERT INTO FLAT (ID, FLAT_NUMBER, IMAGES, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (6, '6', 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg, https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg, https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg', '9000', 'testowy tytuł', 'testowy opis', true );
+INSERT INTO FLAT (ID, FLAT_NUMBER, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (1, '13', '9000', 'testowy tytuł', 'testowy opis', true );
+INSERT INTO FLAT (ID, FLAT_NUMBER, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (2, '14', '9000', 'testowy tytuł', 'testowy opis', true );
+INSERT INTO FLAT (ID, FLAT_NUMBER, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (3, '15', '9000', 'testowy tytuł', 'testowy opis', true );
+INSERT INTO FLAT (ID, FLAT_NUMBER, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (4, '4', '9000', 'testowy tytuł', 'testowy opis', true );
+INSERT INTO FLAT (ID, FLAT_NUMBER, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (5, '5', '9000', 'testowy tytuł', 'testowy opis', true );
+INSERT INTO FLAT (ID, FLAT_NUMBER, PRICE_PER_YARD, TITLE, DESCRIPTION, FOR_RENT) VALUES (6, '6', '9000', 'testowy tytuł', 'testowy opis', true );
+
+INSERT INTO IMAGE (ID, URL) VALUES (1, 'https://www.barrespropertytrading.com/images/proyectos-ini2.jpg');
+INSERT INTO IMAGE (ID, URL) VALUES (2, 'https://s3-us-west-2.amazonaws.com/g5-orion-clients/g5-c-1te982x2-place-properties/g5-cl-5527vd9fb-place-properties/uploads/place-properties-hero.jpg');
+INSERT INTO IMAGE (ID, URL) VALUES (3, 'https://im.proptiger.com/1/667963/6/khain-properties-nilaya-premium-elevation-627779.jpeg');
+
+
 
 
 INSERT INTO PROPERTY_FLAT (PROPERTY_ID, FLAT_ID) VALUES (1, 1);
