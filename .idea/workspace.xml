@@ -2,20 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/ImageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Image.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/ImageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/TestRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/ImageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TestService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Flat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Flat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Flat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Flat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/FlatService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/FlatService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,7 +90,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TestController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TestController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="289">
@@ -112,6 +99,15 @@
                 <element signature="e#555#556#0" expanded="true" />
                 <element signature="e#604#605#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.sql" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="20" column="132" selection-start-line="20" selection-start-column="132" selection-end-line="20" selection-end-column="132" />
             </state>
           </provider>
         </entry>
@@ -148,15 +144,6 @@
                 <element signature="e#557#558#0" expanded="true" />
                 <element signature="e#608#609#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/ImageService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="28" column="46" lean-forward="true" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -280,7 +267,6 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/config/WebSecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/ImageRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/ImageService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/data.sql" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Image.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/ImageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/FlatService.java" />
@@ -289,6 +275,7 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TestService.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Test.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TestController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/data.sql" />
       </list>
     </option>
   </component>
@@ -822,7 +809,7 @@
       <workItem from="1552329264710" duration="6679000" />
       <workItem from="1552471750666" duration="9794000" />
       <workItem from="1552511328329" duration="4042000" />
-      <workItem from="1553541873542" duration="10898000" />
+      <workItem from="1553541873542" duration="11042000" />
     </task>
     <servers />
   </component>
@@ -859,7 +846,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53997000" />
+    <option name="totallyTimeSpent" value="54141000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1863" height="1092" extended-state="6" />
@@ -1256,13 +1243,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/ImageService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -1378,6 +1358,13 @@
             <element signature="e#555#556#0" expanded="true" />
             <element signature="e#604#605#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="20" column="132" selection-start-line="20" selection-start-column="132" selection-end-line="20" selection-end-column="132" />
         </state>
       </provider>
     </entry>
