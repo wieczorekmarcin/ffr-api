@@ -31,19 +31,20 @@ public class Flat {
     @Column(name = "DESCRIPTION")
     private String description;
 
-    @Column(name = "FOR_RENT")
-    private boolean forRent;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "FLAT_STATUS")
+    private FlatStatus flatStatus;
 
     public Flat() {
     }
 
-    public Flat(String flatNumber, List<Image> images, String pricePerYard, String title, String description, boolean forRent) {
+    public Flat(String flatNumber, List<Image> images, String pricePerYard, String title, String description, FlatStatus flatStatus) {
         this.flatNumber = flatNumber;
         this.images = images;
         this.pricePerYard = pricePerYard;
         this.title = title;
         this.description = description;
-        this.forRent = forRent;
+        this.flatStatus = flatStatus;
     }
 
     public Long getId() {
@@ -94,11 +95,11 @@ public class Flat {
         this.description = description;
     }
 
-    public boolean isForRent() {
-        return forRent;
+    public FlatStatus getFlatStatus() {
+        return flatStatus;
     }
 
-    public void setForRent(boolean forRent) {
-        this.forRent = forRent;
+    public void setFlatStatus(FlatStatus flatStatus) {
+        this.flatStatus = flatStatus;
     }
 }

@@ -41,13 +41,13 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     public List<JwtUser> findAllRentiers() {
         return userRepository.findAll().stream()
-                .filter(user -> user.getUserType() == UserType.rentier)
+                .filter(user -> user.getUserType() == UserType.RENTIER)
                 .map(user -> JwtUserFactory.create(user)).collect(Collectors.toList());
     }
 
     public List<JwtUser> findAllTenats() {
         return userRepository.findAll().stream()
-                .filter(user -> user.getUserType() == UserType.tenat)
+                .filter(user -> user.getUserType() == UserType.TENAT)
                 .map(user -> JwtUserFactory.create(user)).collect(Collectors.toList());
     }
 

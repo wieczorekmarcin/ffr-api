@@ -3,6 +3,7 @@ package pl.cdv.ffr.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.cdv.ffr.model.Flat;
+import pl.cdv.ffr.model.FlatStatus;
 import pl.cdv.ffr.repository.FlatRepository;
 
 import java.util.List;
@@ -23,6 +24,10 @@ public class FlatService {
         return byId.get();
     }
 
+    public List<Flat> findFlatsByStatus(FlatStatus flatStatus) {
+        return flatRepository.findByFlatStatus(flatStatus);
+    }
+
     public Flat createFlat(Flat flat) {
         return flatRepository.save(flat);
     }
@@ -32,7 +37,7 @@ public class FlatService {
                 .map(flat -> {
                     flat.setDescription(newFlat.getDescription());
                     flat.setFlatNumber(newFlat.getFlatNumber());
-                    flat.setForRent(newFlat.isForRent());
+                    flat.setFlatStatus(newFlat.getFlatStatus());
                     flat.setImages(newFlat.getImages());
                     flat.setPricePerYard(newFlat.getPricePerYard());
                     flat.setTitle(newFlat.getTitle());

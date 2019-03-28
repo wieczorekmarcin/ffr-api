@@ -3,6 +3,7 @@ package pl.cdv.ffr.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.Flat;
+import pl.cdv.ffr.model.FlatStatus;
 import pl.cdv.ffr.service.FlatService;
 
 import java.util.List;
@@ -15,8 +16,12 @@ public class FlatController {
     FlatService flatService;
 
     @RequestMapping(path = "/flats", method = RequestMethod.GET)
-    public List<Flat> getAllFlats() {
-        return flatService.findAllFlats();
+    public List<Flat> getAllFlatsWithParams(@RequestParam(value = "status", required = false) FlatStatus flatStatus) {
+        if (flatStatus != null) {
+            return flatService.findFlatsByStatus(flatStatus);
+        } else {
+            return flatService.findAllFlats();
+        }
     }
 
     @RequestMapping(path = "/flats/{id}", method = RequestMethod.GET)

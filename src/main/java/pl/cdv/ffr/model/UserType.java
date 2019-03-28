@@ -1,7 +1,7 @@
 package pl.cdv.ffr.model;
 
 public enum UserType {
-    rentier(1), tenat(2);
+    RENTIER(1), TENAT(2);
 
     private int userType;
 
