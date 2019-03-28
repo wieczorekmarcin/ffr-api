@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.model.User;
+import pl.cdv.ffr.model.UserType;
 import pl.cdv.ffr.service.JwtUserDetailsService;
 import pl.cdv.ffr.utils.JwtTokenUtil;
 
@@ -33,8 +34,12 @@ public class UserController {
     }
 
     @RequestMapping(path = "/users", method = RequestMethod.GET)
-    public List<JwtUser> getAllUsers() {
-        return userService.findAllUsers();
+    public List<JwtUser> getAllUsersWithParams(@RequestParam(value = "status", required = false) UserType userType) {
+        if (userType != null) {
+            return userService.findUserByUserType(userType);
+        } else {
+            return userService.findAllUsers();
+        }
     }
 
     @RequestMapping(path = "/users/{id}", method = RequestMethod.GET)
@@ -56,15 +61,4 @@ public class UserController {
     public void deleteUser(@PathVariable("id") String id) {
         userService.deleteUser(id);
     }
-
-    @RequestMapping(path = "/rentiers", method = RequestMethod.GET)
-    public List<JwtUser> getAllRentiers() {
-        return userService.findAllRentiers();
-    }
-
-    @RequestMapping(path = "/tenats", method = RequestMethod.GET)
-    public List<JwtUser> getAllTenats() {
-        return userService.findAllTenats();
-    }
-
 }
