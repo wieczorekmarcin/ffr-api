@@ -11,7 +11,6 @@ public class Test {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "VALUE")
     private String value;
 
     public Test(String value) {

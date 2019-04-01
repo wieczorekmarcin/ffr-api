@@ -11,7 +11,6 @@ public class Image {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "URL")
     private String url;
 
     public Image(String url) {
