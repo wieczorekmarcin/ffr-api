@@ -1,0 +1,45 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "name": "ftp",
+      "type": "pl.cdv.ffr.utils.FTPProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "defaultValue": false,
+      "name": "ftp.auto-start",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "defaultValue": 0,
+      "name": "ftp.keep-alive-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "name": "ftp.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "defaultValue": 0,
+      "name": "ftp.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "name": "ftp.server",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "pl.cdv.ffr.utils.FTPProperties",
+      "name": "ftp.username",
+      "type": "java.lang.String"
+    }
+  ]
+}

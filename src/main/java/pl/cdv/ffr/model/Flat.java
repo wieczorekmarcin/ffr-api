@@ -42,12 +42,12 @@ public class Flat {
     @ElementCollection
     private List<String> additionalInformation;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "FLAT_IMAGE",
-            joinColumns = {@JoinColumn(name = "FLAT_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "IMAGE_ID", referencedColumnName = "ID")})
-    private List<Image> images;
+    @ElementCollection
+    @Transient
+    private List<String> images;
+
+    @ElementCollection
+    private List<String> imagesUrls;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "FLAT_STATUS")
@@ -56,7 +56,7 @@ public class Flat {
     public Flat() {
     }
 
-    public Flat(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> equipment, List<String> security, List<String> media, List<String> additionalInformation, List<Image> images, FlatStatus flatStatus) {
+    public Flat(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> equipment, List<String> security, List<String> media, List<String> additionalInformation, List<String> images, List<String> imagesUrls, FlatStatus flatStatus) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -78,6 +78,7 @@ public class Flat {
         this.media = media;
         this.additionalInformation = additionalInformation;
         this.images = images;
+        this.imagesUrls = imagesUrls;
         this.flatStatus = flatStatus;
     }
 
@@ -249,12 +250,20 @@ public class Flat {
         this.additionalInformation = additionalInformation;
     }
 
-    public List<Image> getImages() {
+    public List<String> getImages() {
         return images;
     }
 
-    public void setImages(List<Image> images) {
+    public void setImages(List<String> images) {
         this.images = images;
+    }
+
+    public List<String> getImagesUrls() {
+        return imagesUrls;
+    }
+
+    public void setImagesUrls(List<String> imagesUrls) {
+        this.imagesUrls = imagesUrls;
     }
 
     public FlatStatus getFlatStatus() {

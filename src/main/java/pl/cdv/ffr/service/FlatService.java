@@ -5,15 +5,23 @@ import org.springframework.stereotype.Service;
 import pl.cdv.ffr.model.Flat;
 import pl.cdv.ffr.model.FlatStatus;
 import pl.cdv.ffr.repository.FlatRepository;
+import pl.cdv.ffr.utils.FTPFileWriter;
 
-import java.util.List;
-import java.util.Optional;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class FlatService {
 
     @Autowired
     FlatRepository flatRepository;
+
+    @Autowired
+    FTPFileWriter ftpFileWriter;
 
     public List<Flat> findAllFlats() {
         return flatRepository.findAll();
@@ -29,6 +37,10 @@ public class FlatService {
     }
 
     public Flat createFlat(Flat flat) {
+        if(flat.getImages() != null && !flat.getImages().isEmpty()) {
+            List<String> urls = getImagesUrls(flat.getImages());
+            flat.setImagesUrls(urls);
+        }
         return flatRepository.save(flat);
     }
 
@@ -38,7 +50,7 @@ public class FlatService {
                     flat.setDescription(newFlat.getDescription());
                     flat.setFlatStatus(newFlat.getFlatStatus());
                     flat.setTitle(newFlat.getTitle());
-                    flat.setImages(newFlat.getImages());
+                    flat.setImagesUrls(getImagesUrls(newFlat.getImages()));
                     flat.setAvailableFrom(newFlat.getAvailableFrom());
                     flat.setBail(newFlat.getBail());
                     flat.setBuildingMaterial(newFlat.getBuildingMaterial());
@@ -67,5 +79,33 @@ public class FlatService {
 
     public void deleteFlat(String id) {
         flatRepository.deleteById(Long.parseLong(id));
+    }
+
+    private List<String> getImagesUrls(List<String> images) {
+        List<String> urls = new ArrayList<>();
+        for(String image : images) {
+            byte[] bytes = Base64.getDecoder().decode(image);
+            InputStream inputStream = new ByteArrayInputStream(bytes);
+            String currentDate = new SimpleDateFormat("yyyy-MM-dd_HH:mm").format(new Date());
+            String fileExtension = "";
+
+            try {
+                String mimeType = URLConnection.guessContentTypeFromStream(inputStream);
+                String delimiter="[/]";
+                String[] tokens = mimeType.split(delimiter);
+                fileExtension = tokens[1];
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            ftpFileWriter.open();
+            if(ftpFileWriter.isConnected()){
+                ftpFileWriter.saveFile(inputStream, "/ffr/images/image_" + currentDate + "." + fileExtension, false);
+            }
+            ftpFileWriter.close();
+
+            urls.add("/ffr/images/image_" + currentDate + "." + fileExtension);
+        }
+        return urls;
     }
 }
