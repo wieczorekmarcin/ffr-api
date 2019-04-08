@@ -1,4 +1,4 @@
-package pl.cdv.ffr.utils;
+package pl.cdv.ffr.utils.ftp;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package pl.cdv.ffr.utils;
+package pl.cdv.ffr.utils.ftp;
 
 import org.apache.commons.net.ftp.FTPClient;
 import org.slf4j.Logger;

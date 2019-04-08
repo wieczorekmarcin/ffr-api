@@ -1,4 +1,4 @@
-package pl.cdv.ffr.utils;
+package pl.cdv.ffr.utils.ftp;
 
 import java.io.InputStream;
 import java.io.OutputStream;

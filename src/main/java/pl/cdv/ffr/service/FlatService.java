@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.cdv.ffr.model.Flat;
 import pl.cdv.ffr.model.FlatStatus;
 import pl.cdv.ffr.repository.FlatRepository;
-import pl.cdv.ffr.utils.FTPFileWriter;
+import pl.cdv.ffr.utils.ftp.FTPFileWriter;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
