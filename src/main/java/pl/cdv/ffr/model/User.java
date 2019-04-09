@@ -1,5 +1,7 @@
 package pl.cdv.ffr.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -8,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "USER")
+@JsonPropertyOrder({ "id", "username", "password", "firstname", "lastname", "userType", "enabled", "lastPasswordResetDate", "authorities"})
 public class User {
 
     @Id

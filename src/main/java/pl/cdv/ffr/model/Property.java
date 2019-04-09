@@ -1,12 +1,14 @@
 package pl.cdv.ffr.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "FLAT")
-public class Flat {
+@JsonPropertyOrder({ "id", "title", "description", "price", "bail", "surface", "roomsNumber", "street", "postCode", "city", "buildingType", "floor", "floorsNumber", "buildingMaterial", "windows", "heating", "windows", "availableFrom", "equipment", "security", "media", "additionalInformation", "images", "imagesUrls", "propertyStatus"  })
+public class Property {
 
     @Id
     @Column(name = "ID")
@@ -50,13 +52,12 @@ public class Flat {
     private List<String> imagesUrls;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "FLAT_STATUS")
-    private FlatStatus flatStatus;
+    private PropertyStatus propertyStatus;
 
-    public Flat() {
+    public Property() {
     }
 
-    public Flat(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> equipment, List<String> security, List<String> media, List<String> additionalInformation, List<String> images, List<String> imagesUrls, FlatStatus flatStatus) {
+    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> equipment, List<String> security, List<String> media, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -79,7 +80,7 @@ public class Flat {
         this.additionalInformation = additionalInformation;
         this.images = images;
         this.imagesUrls = imagesUrls;
-        this.flatStatus = flatStatus;
+        this.propertyStatus = propertyStatus;
     }
 
     public Long getId() {
@@ -266,11 +267,11 @@ public class Flat {
         this.imagesUrls = imagesUrls;
     }
 
-    public FlatStatus getFlatStatus() {
-        return flatStatus;
+    public PropertyStatus getPropertyStatus() {
+        return propertyStatus;
     }
 
-    public void setFlatStatus(FlatStatus flatStatus) {
-        this.flatStatus = flatStatus;
+    public void setPropertyStatus(PropertyStatus propertyStatus) {
+        this.propertyStatus = propertyStatus;
     }
 }

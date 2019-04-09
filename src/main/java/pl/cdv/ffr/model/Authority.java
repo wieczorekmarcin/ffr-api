@@ -1,11 +1,14 @@
 package pl.cdv.ffr.model;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 @Table(name = "AUTHORITY")
+@JsonPropertyOrder({ "id", "name", "users"})
 public class Authority {
 
     @Id
@@ -13,7 +16,6 @@ public class Authority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "NAME", length = 50)
     @NotNull
     @Enumerated(EnumType.STRING)
     private AuthorityName name;
