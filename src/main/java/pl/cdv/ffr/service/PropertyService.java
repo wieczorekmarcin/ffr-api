@@ -100,11 +100,11 @@ public class PropertyService {
 
             ftpFileWriter.open();
             if(ftpFileWriter.isConnected()){
-                ftpFileWriter.saveFile(inputStream, "/ffr/images/image_" + currentDate + "." + fileExtension, false);
+                ftpFileWriter.saveFile(inputStream, "/images/image_" + currentDate + "." + fileExtension, false);
             }
             ftpFileWriter.close();
 
-            urls.add("/ffr/images/image_" + currentDate + "." + fileExtension);
+            urls.add("http://wieczorekmarcin.usermd.net/ffr/images/image_" + currentDate + "." + fileExtension);
         }
         return urls;
     }
