@@ -16,14 +16,16 @@ public class Media {
     private String name;
     private String unit;
     private String pricePerUnit;
+    private String currency;
 
     public Media() {
     }
 
-    public Media(String name, String unit, String pricePerUnit) {
+    public Media(String name, String unit, String pricePerUnit, String currency) {
         this.name = name;
         this.unit = unit;
         this.pricePerUnit = pricePerUnit;
+        this.currency = currency;
     }
 
     public Long getId() {
@@ -56,5 +58,13 @@ public class Media {
 
     public void setPricePerUnit(String pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 }

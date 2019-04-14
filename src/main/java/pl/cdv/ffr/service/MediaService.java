@@ -33,6 +33,7 @@ public class MediaService {
                     media.setName(newMedia.getName());
                     media.setPricePerUnit(newMedia.getPricePerUnit());
                     media.setUnit(newMedia.getUnit());
+                    media.setCurrency(newMedia.getCurrency());
                     return mediaRepository.save(media);
                 })
                 .orElseGet(() -> {
