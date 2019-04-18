@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@JsonPropertyOrder({ "id", "title", "description", "price", "bail", "surface", "roomsNumber", "street", "postCode", "city", "buildingType", "floor", "floorsNumber", "buildingMaterial", "windows", "heating", "windows", "availableFrom", "equipment", "security", "media", "additionalInformation", "images", "imagesUrls", "propertyStatus"  })
+@JsonPropertyOrder({ "id", "title", "description", "price", "bail", "surface", "roomsNumber", "street", "postCode", "city", "buildingType", "floor", "floorsNumber", "buildingMaterial", "windows", "heating", "windows", "availableFrom", "additionalInformation", "images", "imagesUrls", "propertyStatus"  })
 public class Property {
 
     @Id
@@ -33,15 +33,6 @@ public class Property {
     private Date availableFrom;
 
     @ElementCollection
-    private List<String> equipment;
-
-    @ElementCollection
-    private List<String> security;
-
-    @ElementCollection
-    private List<String> media;
-
-    @ElementCollection
     private List<String> additionalInformation;
 
     @ElementCollection
@@ -57,7 +48,7 @@ public class Property {
     public Property() {
     }
 
-    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> equipment, List<String> security, List<String> media, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus) {
+    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -74,9 +65,6 @@ public class Property {
         this.windows = windows;
         this.heating = heating;
         this.availableFrom = availableFrom;
-        this.equipment = equipment;
-        this.security = security;
-        this.media = media;
         this.additionalInformation = additionalInformation;
         this.images = images;
         this.imagesUrls = imagesUrls;
@@ -217,30 +205,6 @@ public class Property {
 
     public void setAvailableFrom(Date availableFrom) {
         this.availableFrom = availableFrom;
-    }
-
-    public List<String> getEquipment() {
-        return equipment;
-    }
-
-    public void setEquipment(List<String> equipment) {
-        this.equipment = equipment;
-    }
-
-    public List<String> getSecurity() {
-        return security;
-    }
-
-    public void setSecurity(List<String> security) {
-        this.security = security;
-    }
-
-    public List<String> getMedia() {
-        return media;
-    }
-
-    public void setMedia(List<String> media) {
-        this.media = media;
     }
 
     public List<String> getAdditionalInformation() {

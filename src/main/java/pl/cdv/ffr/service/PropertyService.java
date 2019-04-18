@@ -66,9 +66,6 @@ public class PropertyService {
                     property.setStreet(newProperty.getStreet());
                     property.setSurface(newProperty.getSurface());
                     property.setAdditionalInformation(newProperty.getAdditionalInformation());
-                    property.setEquipment(newProperty.getEquipment());
-                    property.setMedia(newProperty.getMedia());
-                    property.setSecurity(newProperty.getSecurity());
                     return propertyRepository.save(property);
                 })
                 .orElseGet(() -> {
@@ -83,7 +80,11 @@ public class PropertyService {
 
     private List<String> getImagesUrls(List<String> images) {
         List<String> urls = new ArrayList<>();
-        for(String image : images) {
+        for (String image : images) {
+            boolean isBase64 = image.matches("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$");
+            if (!isBase64) {
+                continue;
+            }
             byte[] bytes = Base64.getDecoder().decode(image);
             InputStream inputStream = new ByteArrayInputStream(bytes);
             String currentDate = new SimpleDateFormat("yyyy-MM-dd_HH:mm").format(new Date());
@@ -99,7 +100,7 @@ public class PropertyService {
             }
 
             ftpFileWriter.open();
-            if(ftpFileWriter.isConnected()){
+            if (ftpFileWriter.isConnected()){
                 ftpFileWriter.saveFile(inputStream, "/images/image_" + currentDate + "." + fileExtension, false);
             }
             ftpFileWriter.close();
