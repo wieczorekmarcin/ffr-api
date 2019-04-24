@@ -1,6 +1,7 @@
 package pl.cdv.ffr.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -9,8 +10,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@Table(name = "USER")
 @JsonPropertyOrder({ "id", "username", "password", "firstname", "lastname", "userType", "enabled", "lastPasswordResetDate", "authorities"})
+@DynamicUpdate
 public class User {
 
     @Id

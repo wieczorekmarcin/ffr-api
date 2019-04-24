@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MediaService {
+public class MediaService extends BaseService {
 
     @Autowired
     MediaRepository mediaRepository;
@@ -30,10 +30,7 @@ public class MediaService {
     public Media updateMedia(Media newMedia, String id) {
         return mediaRepository.findById(Long.parseLong(id))
                 .map(media -> {
-                    media.setName(newMedia.getName());
-                    media.setPricePerUnit(newMedia.getPricePerUnit());
-                    media.setUnit(newMedia.getUnit());
-                    media.setCurrency(newMedia.getCurrency());
+                    copyNonNullProperties(newMedia, media);
                     return mediaRepository.save(media);
                 })
                 .orElseGet(() -> {

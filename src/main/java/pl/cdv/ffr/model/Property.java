@@ -1,6 +1,7 @@
 package pl.cdv.ffr.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Entity
 @JsonPropertyOrder({ "id", "title", "description", "price", "bail", "surface", "roomsNumber", "street", "postCode", "city", "buildingType", "floor", "floorsNumber", "buildingMaterial", "windows", "heating", "windows", "availableFrom", "additionalInformation", "images", "imagesUrls", "propertyStatus"  })
+@DynamicUpdate
 public class Property {
 
     @Id

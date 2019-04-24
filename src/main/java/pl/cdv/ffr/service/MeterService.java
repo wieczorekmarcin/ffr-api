@@ -11,7 +11,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class MeterService {
+public class MeterService extends BaseService {
 
     @Autowired
     MeterRepository meterRepository;
@@ -53,9 +53,7 @@ public class MeterService {
     public Meter updateMeter(Meter newMeter, String id) {
         return meterRepository.findById(Long.parseLong(id))
                 .map(meter -> {
-                    meter.setCurrentMeterStatus(newMeter.getCurrentMeterStatus());
-                    meter.setMedia(newMeter.getMedia());
-                    meter.setProperty(newMeter.getProperty());
+                    copyNonNullProperties(newMeter, meter);
                     return meterRepository.save(meter);
                 })
                 .orElseGet(() -> {

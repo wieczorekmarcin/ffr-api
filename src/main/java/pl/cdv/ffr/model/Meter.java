@@ -1,11 +1,13 @@
 package pl.cdv.ffr.model;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 
 @Entity
 @JsonPropertyOrder({ "id", "currentMeterStatus", "media", "property" })
+@DynamicUpdate
 public class Meter {
 
     @Id
