@@ -3,10 +3,6 @@ package pl.cdv.ffr.utils.ftp;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import javax.annotation.PostConstruct;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-
 @Configuration
 @ConfigurationProperties(
         prefix = "ftp"
@@ -15,24 +11,13 @@ public class FTPProperties {
     private String server;
     private String username;
     private String password;
-    @Min(0L)
-    @Max(65535L)
-    private int port;
-    private int keepAliveTimeout;
-    private boolean autoStart;
+    private String baseURI;
 
     public FTPProperties() {
     }
 
-    @PostConstruct
-    public void init() {
-        if (this.port == 0) {
-            this.port = 21;
-        }
-    }
-
     public String getServer() {
-        return this.server;
+        return server;
     }
 
     public void setServer(String server) {
@@ -40,7 +25,7 @@ public class FTPProperties {
     }
 
     public String getUsername() {
-        return this.username;
+        return username;
     }
 
     public void setUsername(String username) {
@@ -48,34 +33,18 @@ public class FTPProperties {
     }
 
     public String getPassword() {
-        return this.password;
+        return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
     }
 
-    public int getPort() {
-        return this.port;
+    public String getBaseURI() {
+        return baseURI;
     }
 
-    public void setPort(int port) {
-        this.port = port;
-    }
-
-    public int getKeepAliveTimeout() {
-        return this.keepAliveTimeout;
-    }
-
-    public void setKeepAliveTimeout(int keepAliveTimeout) {
-        this.keepAliveTimeout = keepAliveTimeout;
-    }
-
-    public boolean isAutoStart() {
-        return this.autoStart;
-    }
-
-    public void setAutoStart(boolean autoStart) {
-        this.autoStart = autoStart;
+    public void setBaseURI(String baseURI) {
+        this.baseURI = baseURI;
     }
 }

@@ -10,26 +10,13 @@
   "properties": [
     {
       "sourceType": "pl.cdv.ffr.utils.ftp.FTPProperties",
-      "defaultValue": false,
-      "name": "ftp.auto-start",
-      "type": "java.lang.Boolean"
-    },
-    {
-      "sourceType": "pl.cdv.ffr.utils.ftp.FTPProperties",
-      "defaultValue": 0,
-      "name": "ftp.keep-alive-timeout",
-      "type": "java.lang.Integer"
+      "name": "ftp.base-u-r-i",
+      "type": "java.lang.String"
     },
     {
       "sourceType": "pl.cdv.ffr.utils.ftp.FTPProperties",
       "name": "ftp.password",
       "type": "java.lang.String"
-    },
-    {
-      "sourceType": "pl.cdv.ffr.utils.ftp.FTPProperties",
-      "defaultValue": 0,
-      "name": "ftp.port",
-      "type": "java.lang.Integer"
     },
     {
       "sourceType": "pl.cdv.ffr.utils.ftp.FTPProperties",

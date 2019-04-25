@@ -5,14 +5,14 @@ import org.springframework.stereotype.Service;
 import pl.cdv.ffr.model.Property;
 import pl.cdv.ffr.model.PropertyStatus;
 import pl.cdv.ffr.repository.PropertyRepository;
-import pl.cdv.ffr.utils.ftp.FTPFileWriter;
+import pl.cdv.ffr.utils.ftp.FTPHelper;
 
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URLConnection;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PropertyService extends BaseService {
@@ -21,7 +21,7 @@ public class PropertyService extends BaseService {
     PropertyRepository propertyRepository;
 
     @Autowired
-    FTPFileWriter ftpFileWriter;
+    FTPHelper ftpHelper;
 
     public List<Property> findAllPropertys() {
         return propertyRepository.findAll();
@@ -61,39 +61,28 @@ public class PropertyService extends BaseService {
         propertyRepository.deleteById(Long.parseLong(id));
     }
 
-    private List<String> getImagesUrls(List<String> images) {
+    private List<String> getImagesUrls(List<String> base64List) {
         List<String> urls = new ArrayList<>();
-        if (images != null && !images.isEmpty()) {
-            for (String image : images) {
-                boolean isBase64 = image.matches("^([A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{3}=|[A-Za-z0-9+/]{2}==)?$");
-                if (!isBase64) {
-                    continue;
-                }
+        if (base64List != null && !base64List.isEmpty()) {
+            for (String base64 : base64List) {
 
-                byte[] bytes = Base64.getDecoder().decode(image);
-                InputStream inputStream = new ByteArrayInputStream(bytes);
-                String currentDate = new SimpleDateFormat("yyyy-MM-dd_HH-mm").format(new Date());
-                String fileExtension = "";
+                InputStream in;
+                String fileUrl;
+                Date now = new Date();
+
+                String imageDataBytes = base64.substring(base64.indexOf(",") + 1);
+                String typeFileMime = base64.substring(0, base64.indexOf(";"));
+                String extension = typeFileMime.substring(typeFileMime.indexOf("/") + 1);
 
                 try {
-                    String mimeType = URLConnection.guessContentTypeFromStream(inputStream);
-                    String delimiter="[/]";
-                    String[] tokens = mimeType.split(delimiter);
-                    fileExtension = tokens[1];
+                    in = ftpHelper.getDecodedInputStream(imageDataBytes, extension);
+                    fileUrl = ftpHelper.createAndSaveDecodedFile(in, extension, now);
+                    urls.add(fileUrl);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                ftpFileWriter.open();
-                if (ftpFileWriter.isConnected()) {
-                    ftpFileWriter.saveFile(inputStream, "/images/image_" + currentDate + "." + fileExtension, false);
-                }
-                ftpFileWriter.close();
-
-                urls.add("http://wieczorekmarcin.usermd.net/ffr/images/image_" + currentDate + "." + fileExtension);
             }
         }
-
         return urls;
     }
 }
