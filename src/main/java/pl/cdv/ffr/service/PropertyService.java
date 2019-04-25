@@ -7,7 +7,6 @@ import pl.cdv.ffr.model.PropertyStatus;
 import pl.cdv.ffr.repository.PropertyRepository;
 import pl.cdv.ffr.utils.ftp.FTPFileWriter;
 
-import javax.persistence.EntityManager;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,9 +22,6 @@ public class PropertyService extends BaseService {
 
     @Autowired
     FTPFileWriter ftpFileWriter;
-
-    @Autowired
-    EntityManager entityManager;
 
     public List<Property> findAllPropertys() {
         return propertyRepository.findAll();
