@@ -34,7 +34,7 @@ public class Bill extends BaseEntity {
 
     public Bill() {
     }
-    
+
     public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, CommonPart commonPart, RepairFund repairFund, Trash trash, Property property) {
         this.electricity = electricity;
         this.heating = heating;

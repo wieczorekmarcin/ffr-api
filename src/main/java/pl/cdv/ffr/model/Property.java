@@ -40,10 +40,13 @@ public class Property extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private PropertyStatus propertyStatus;
 
+    @OneToOne(cascade=CascadeType.MERGE)
+    private Tenat tenat;
+
     public Property() {
     }
 
-    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus) {
+    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus, Tenat tenat) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -64,6 +67,7 @@ public class Property extends BaseEntity {
         this.images = images;
         this.imagesUrls = imagesUrls;
         this.propertyStatus = propertyStatus;
+        this.tenat = tenat;
     }
 
     public String getTitle() {
@@ -224,5 +228,13 @@ public class Property extends BaseEntity {
 
     public void setPropertyStatus(PropertyStatus propertyStatus) {
         this.propertyStatus = propertyStatus;
+    }
+
+    public Tenat getTenat() {
+        return tenat;
+    }
+
+    public void setTenat(Tenat tenat) {
+        this.tenat = tenat;
     }
 }

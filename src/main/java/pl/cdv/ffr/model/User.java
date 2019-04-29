@@ -1,6 +1,5 @@
 package pl.cdv.ffr.model;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
@@ -10,14 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
-@JsonPropertyOrder({ "id", "username", "password", "firstname", "lastname", "userType", "enabled", "lastPasswordResetDate", "authorities"})
 @DynamicUpdate
-public class User {
-
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class User extends BaseEntity {
 
     @Column(name = "USERNAME", length = 50, unique = true)
     @NotNull
@@ -45,7 +38,6 @@ public class User {
     private String email;
 
     @Column(name = "USER_TYPE", length = 50)
-    @Size(min = 4, max = 50)
     private UserType userType;
 
     @Column(name = "ENABLED")
@@ -63,14 +55,6 @@ public class User {
             joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
             inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
     private List<Authority> authorities;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
