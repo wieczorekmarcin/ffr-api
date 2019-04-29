@@ -30,12 +30,12 @@ public class Bill extends BaseEntity {
     private Trash trash;
 
     @OneToOne(cascade=CascadeType.MERGE)
-    private Property property;
+    private Tenat tenat;
 
     public Bill() {
     }
 
-    public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, CommonPart commonPart, RepairFund repairFund, Trash trash, Property property) {
+    public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, CommonPart commonPart, RepairFund repairFund, Trash trash, Tenat tenat) {
         this.electricity = electricity;
         this.heating = heating;
         this.coldWater = coldWater;
@@ -43,7 +43,7 @@ public class Bill extends BaseEntity {
         this.commonPart = commonPart;
         this.repairFund = repairFund;
         this.trash = trash;
-        this.property = property;
+        this.tenat = tenat;
     }
 
     public Electricity getElectricity() {
@@ -102,11 +102,11 @@ public class Bill extends BaseEntity {
         this.trash = trash;
     }
 
-    public Property getProperty() {
-        return property;
+    public Tenat getTenat() {
+        return tenat;
     }
 
-    public void setProperty(Property property) {
-        this.property = property;
+    public void setTenat(Tenat tenat) {
+        this.tenat = tenat;
     }
 }

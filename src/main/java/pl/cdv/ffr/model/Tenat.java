@@ -14,7 +14,6 @@ public class Tenat extends BaseEntity {
     private String idNumber;
     private String email;
     private String phoneNumber;
-    private String propertyAddress;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinTable(
@@ -26,14 +25,13 @@ public class Tenat extends BaseEntity {
     public Tenat() {
     }
 
-    public Tenat(String firstName, String lastName, String pesel, String idNumber, String email, String phoneNumber, String propertyAddress, Property property) {
+    public Tenat(String firstName, String lastName, String pesel, String idNumber, String email, String phoneNumber, Property property) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
         this.idNumber = idNumber;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.propertyAddress = propertyAddress;
         this.property = property;
     }
 
@@ -83,14 +81,6 @@ public class Tenat extends BaseEntity {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    public String getPropertyAddress() {
-        return propertyAddress;
-    }
-
-    public void setPropertyAddress(String propertyAddress) {
-        this.propertyAddress = propertyAddress;
     }
 
     public Property getProperty() {

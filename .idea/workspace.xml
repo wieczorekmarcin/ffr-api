@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Property.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Property.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Bill.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Bill.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Tenat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Tenat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Property.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Tenat.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Bill.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Tenat.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/Tenat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/JwtUserDetailsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/JwtUserDetailsService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="src/main/resources/application.properties" />
@@ -35,213 +39,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Property.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Property.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="520">
-              <caret line="45" column="406" selection-start-line="45" selection-start-column="406" selection-end-line="45" selection-end-column="406" />
-              <folding>
-                <element signature="e#2283#2284#0" expanded="true" />
-                <element signature="e#2311#2312#0" expanded="true" />
-                <element signature="e#2353#2354#0" expanded="true" />
-                <element signature="e#2387#2388#0" expanded="true" />
-                <element signature="e#2425#2426#0" expanded="true" />
-                <element signature="e#2459#2460#0" expanded="true" />
-                <element signature="e#2513#2514#0" expanded="true" />
-                <element signature="e#2559#2560#0" expanded="true" />
-                <element signature="e#2591#2592#0" expanded="true" />
-                <element signature="e#2619#2620#0" expanded="true" />
-                <element signature="e#2661#2662#0" expanded="true" />
-                <element signature="e#2695#2696#0" expanded="true" />
-                <element signature="e#2726#2727#0" expanded="true" />
-                <element signature="e#2753#2754#0" expanded="true" />
-                <element signature="e#2793#2794#0" expanded="true" />
-                <element signature="e#2825#2826#0" expanded="true" />
-                <element signature="e#2859#2860#0" expanded="true" />
-                <element signature="e#2889#2890#0" expanded="true" />
-                <element signature="e#2935#2936#0" expanded="true" />
-                <element signature="e#2973#2974#0" expanded="true" />
-                <element signature="e#3011#3012#0" expanded="true" />
-                <element signature="e#3045#3046#0" expanded="true" />
-                <element signature="e#3099#3100#0" expanded="true" />
-                <element signature="e#3145#3146#0" expanded="true" />
-                <element signature="e#3178#3179#0" expanded="true" />
-                <element signature="e#3207#3208#0" expanded="true" />
-                <element signature="e#3251#3252#0" expanded="true" />
-                <element signature="e#3287#3288#0" expanded="true" />
-                <element signature="e#3322#3323#0" expanded="true" />
-                <element signature="e#3353#3354#0" expanded="true" />
-                <element signature="e#3401#3402#0" expanded="true" />
-                <element signature="e#3441#3442#0" expanded="true" />
-                <element signature="e#3472#3473#0" expanded="true" />
-                <element signature="e#3499#3500#0" expanded="true" />
-                <element signature="e#3539#3540#0" expanded="true" />
-                <element signature="e#3571#3572#0" expanded="true" />
-                <element signature="e#3610#3611#0" expanded="true" />
-                <element signature="e#3645#3646#0" expanded="true" />
-                <element signature="e#3701#3702#0" expanded="true" />
-                <element signature="e#3749#3750#0" expanded="true" />
-                <element signature="e#3781#3782#0" expanded="true" />
-                <element signature="e#3809#3810#0" expanded="true" />
-                <element signature="e#3851#3852#0" expanded="true" />
-                <element signature="e#3885#3886#0" expanded="true" />
-                <element signature="e#3924#3925#0" expanded="true" />
-                <element signature="e#3959#3960#0" expanded="true" />
-                <element signature="e#4015#4016#0" expanded="true" />
-                <element signature="e#4063#4064#0" expanded="true" />
-                <element signature="e#4106#4107#0" expanded="true" />
-                <element signature="e#4145#4146#0" expanded="true" />
-                <element signature="e#4209#4210#0" expanded="true" />
-                <element signature="e#4265#4266#0" expanded="true" />
-                <element signature="e#4299#4300#0" expanded="true" />
-                <element signature="e#4329#4330#0" expanded="true" />
-                <element signature="e#4375#4376#0" expanded="true" />
-                <element signature="e#4413#4414#0" expanded="true" />
-                <element signature="e#4447#4448#0" expanded="true" />
-                <element signature="e#4477#4478#0" expanded="true" />
-                <element signature="e#4523#4524#0" expanded="true" />
-                <element signature="e#4561#4562#0" expanded="true" />
-                <element signature="e#4599#4600#0" expanded="true" />
-                <element signature="e#4635#4636#0" expanded="true" />
-                <element signature="e#4691#4692#0" expanded="true" />
-                <element signature="e#4741#4742#0" expanded="true" />
-                <element signature="e#4795#4796#0" expanded="true" />
-                <element signature="e#4839#4840#0" expanded="true" />
-                <element signature="e#5024#5025#0" expanded="true" />
-                <element signature="e#5053#5054#0" expanded="true" />
-                <element signature="e#5103#5104#0" expanded="true" />
-                <element signature="e#5139#5140#0" expanded="true" />
-                <element signature="e#5182#5183#0" expanded="true" />
-                <element signature="e#5215#5216#0" expanded="true" />
-                <element signature="e#5273#5274#0" expanded="true" />
-                <element signature="e#5317#5318#0" expanded="true" />
-                <element signature="e#5366#5367#0" expanded="true" />
-                <element signature="e#5403#5404#0" expanded="true" />
-                <element signature="e#5471#5472#0" expanded="true" />
-                <element signature="e#5523#5524#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="51" selection-start-line="51" selection-end-line="55" selection-end-column="99" />
+            <state relative-caret-position="238">
+              <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TenatService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvocableHandlerMethod.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestMappingHandlerAdapter.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="570" selection-start-line="570" selection-end-line="570" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DispatcherServlet.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="425" selection-start-line="425" selection-end-line="425" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FrameworkServlet.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="543">
-              <caret line="483" selection-start-line="483" selection-end-line="483" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-282">
-              <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TenatController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="28" selection-start-line="28" selection-end-line="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#910#911#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Tenat.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Tenat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Tenat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+            <state relative-caret-position="85">
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1041#1042#0" expanded="true" />
-                <element signature="e#1073#1074#0" expanded="true" />
-                <element signature="e#1123#1124#0" expanded="true" />
-                <element signature="e#1165#1166#0" expanded="true" />
-                <element signature="e#1200#1201#0" expanded="true" />
-                <element signature="e#1231#1232#0" expanded="true" />
-                <element signature="e#1279#1280#0" expanded="true" />
-                <element signature="e#1319#1320#0" expanded="true" />
-                <element signature="e#1351#1352#0" expanded="true" />
-                <element signature="e#1379#1380#0" expanded="true" />
-                <element signature="e#1421#1422#0" expanded="true" />
-                <element signature="e#1455#1456#0" expanded="true" />
-                <element signature="e#1490#1491#0" expanded="true" />
-                <element signature="e#1521#1522#0" expanded="true" />
-                <element signature="e#1569#1570#0" expanded="true" />
-                <element signature="e#1609#1610#0" expanded="true" />
-                <element signature="e#1641#1642#0" expanded="true" />
-                <element signature="e#1669#1670#0" expanded="true" />
-                <element signature="e#1711#1712#0" expanded="true" />
-                <element signature="e#1745#1746#0" expanded="true" />
-                <element signature="e#1783#1784#0" expanded="true" />
-                <element signature="e#1817#1818#0" expanded="true" />
-                <element signature="e#1871#1872#0" expanded="true" />
-                <element signature="e#1917#1918#0" expanded="true" />
-                <element signature="e#1959#1960#0" expanded="true" />
-                <element signature="e#1997#1998#0" expanded="true" />
-                <element signature="e#2059#2060#0" expanded="true" />
-                <element signature="e#2113#2114#0" expanded="true" />
-                <element signature="e#2150#2151#0" expanded="true" />
-                <element signature="e#2181#2182#0" expanded="true" />
-                <element signature="e#2231#2232#0" expanded="true" />
-                <element signature="e#2271#2272#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -253,14 +66,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>okna</find>
       <find>tostr</find>
       <find>image</find>
       <find>com.github.kuljaninemir.springbootftpclient.</find>
@@ -290,6 +102,7 @@
       <find>bill</find>
       <find>Size</find>
       <find>id</find>
+      <find>create</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -306,9 +119,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/FTPProperties.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/FTPFileWriterImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Image.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Flat.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/FlatService.java" />
@@ -332,7 +142,6 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/ftp/FTPProperties.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/FTPHelper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/ftp/FTPHelper.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/PropertyService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
@@ -349,14 +158,18 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/RepairFund.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/CommonPart.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Authority.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Bill.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/TenatRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/AuthorityRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Property.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Tenat.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/RentierRespository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Rentier.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Bill.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/JwtUserDetailsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java" />
       </list>
     </option>
   </component>
@@ -426,6 +239,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ffr-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ffr-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -434,23 +255,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ffr-api" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ffr-api" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ffr-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ffr-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ffr-api" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ffr-api" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ftp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ffr-api" type="b2602c69:ProjectViewProjectNode" />
@@ -839,7 +652,7 @@
       <workItem from="1556184705150" duration="783000" />
       <workItem from="1556187788511" duration="13389000" />
       <workItem from="1556264494089" duration="119000" />
-      <workItem from="1556534063184" duration="7600000" />
+      <workItem from="1556534063184" duration="12340000" />
     </task>
     <servers />
   </component>
@@ -876,7 +689,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144162000" />
+    <option name="totallyTimeSpent" value="148902000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1863" height="1092" extended-state="6" />
@@ -953,42 +766,11 @@
           <properties />
           <option name="timeStamp" value="20" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="26" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Media.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Meter.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/PropertyRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" selection-start-line="9" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/BillRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-oracle/src.zip!/javax/tools/FileObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/ftp/FTPFileWriterImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/ftp/FTPFileWriter.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.0.7.RELEASE/spring-webmvc-5.0.7.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/ServletInvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -1007,17 +789,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-367">
           <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="15" column="36" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
-          <folding>
-            <element signature="e#1185#1186#0" expanded="true" />
-            <element signature="e#1248#1249#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1125,31 +896,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/JwtAuthenticationResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/JwtAuthenticationRequest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BillService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="46" column="1" lean-forward="true" selection-start-line="46" selection-start-column="1" selection-end-line="46" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/BillController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="9" selection-start-line="9" selection-end-line="40" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1177,16 +927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Authority.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1201,13 +941,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Trash.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1236,13 +969,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="8" column="36" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Bill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -1333,27 +1059,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#910#911#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.0.7.RELEASE/spring-web-5.0.7.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1382,59 +1087,221 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Trash.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-282">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="68">
+          <caret line="6" selection-start-line="6" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/exception/AuthenticationException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="51" selection-start-line="51" selection-end-line="55" selection-end-column="99" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/BillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" selection-start-line="9" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/config/WebSecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="30" column="13" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#910#911#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/AuthenticationController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/JwtAuthenticationResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="51" column="34" selection-start-line="51" selection-start-column="34" selection-end-line="51" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/RentierRespository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="71" selection-start-line="5" selection-start-column="71" selection-end-line="5" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/JwtUserFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#1185#1186#0" expanded="true" />
+            <element signature="e#1248#1249#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Authority.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Rentier.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="31" lean-forward="true" selection-start-line="22" selection-start-column="31" selection-end-line="22" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#1000#1001#0" expanded="true" />
+            <element signature="e#1050#1051#0" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
+            <element signature="e#1127#1128#0" expanded="true" />
+            <element signature="e#1158#1159#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1246#1247#0" expanded="true" />
+            <element signature="e#1278#1279#0" expanded="true" />
+            <element signature="e#1306#1307#0" expanded="true" />
+            <element signature="e#1348#1349#0" expanded="true" />
+            <element signature="e#1382#1383#0" expanded="true" />
+            <element signature="e#1414#1415#0" expanded="true" />
+            <element signature="e#1442#1443#0" expanded="true" />
+            <element signature="e#1484#1485#0" expanded="true" />
+            <element signature="e#1518#1519#0" expanded="true" />
+            <element signature="e#1556#1557#0" expanded="true" />
+            <element signature="e#1590#1591#0" expanded="true" />
+            <element signature="e#1644#1645#0" expanded="true" />
+            <element signature="e#1690#1691#0" expanded="true" />
+            <element signature="e#1728#1729#0" expanded="true" />
+            <element signature="e#1757#1758#0" expanded="true" />
+            <element signature="e#1806#1807#0" expanded="true" />
+            <element signature="e#1842#1843#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/JwtAuthenticationRequest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/JwtUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding>
+            <element signature="e#1839#1840#0" expanded="true" />
+            <element signature="e#1887#1888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Bill.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="32" column="13" lean-forward="true" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+          <folding>
+            <element signature="e#1260#1261#0" expanded="true" />
+            <element signature="e#1294#1295#0" expanded="true" />
+            <element signature="e#1353#1354#0" expanded="true" />
+            <element signature="e#1399#1400#0" expanded="true" />
+            <element signature="e#1434#1435#0" expanded="true" />
+            <element signature="e#1464#1465#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1549#1550#0" expanded="true" />
+            <element signature="e#1588#1589#0" expanded="true" />
+            <element signature="e#1620#1621#0" expanded="true" />
+            <element signature="e#1673#1674#0" expanded="true" />
+            <element signature="e#1715#1716#0" expanded="true" />
+            <element signature="e#1752#1753#0" expanded="true" />
+            <element signature="e#1783#1784#0" expanded="true" />
+            <element signature="e#1833#1834#0" expanded="true" />
+            <element signature="e#1873#1874#0" expanded="true" />
+            <element signature="e#1914#1915#0" expanded="true" />
+            <element signature="e#1947#1948#0" expanded="true" />
+            <element signature="e#2003#2004#0" expanded="true" />
+            <element signature="e#2047#2048#0" expanded="true" />
+            <element signature="e#2088#2089#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2177#2178#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2252#2253#0" expanded="true" />
+            <element signature="e#2280#2281#0" expanded="true" />
+            <element signature="e#2321#2322#0" expanded="true" />
+            <element signature="e#2355#2356#0" expanded="true" />
+            <element signature="e#2386#2387#0" expanded="true" />
+            <element signature="e#2414#2415#0" expanded="true" />
+            <element signature="e#2455#2456#0" expanded="true" />
+            <element signature="e#2489#2490#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Tenat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="36" column="33" lean-forward="true" selection-start-line="36" selection-start-column="33" selection-end-line="36" selection-end-column="33" />
+        <state relative-caret-position="85">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1041#1042#0" expanded="true" />
-            <element signature="e#1073#1074#0" expanded="true" />
-            <element signature="e#1123#1124#0" expanded="true" />
-            <element signature="e#1165#1166#0" expanded="true" />
-            <element signature="e#1200#1201#0" expanded="true" />
-            <element signature="e#1231#1232#0" expanded="true" />
-            <element signature="e#1279#1280#0" expanded="true" />
-            <element signature="e#1319#1320#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1379#1380#0" expanded="true" />
-            <element signature="e#1421#1422#0" expanded="true" />
-            <element signature="e#1455#1456#0" expanded="true" />
-            <element signature="e#1490#1491#0" expanded="true" />
-            <element signature="e#1521#1522#0" expanded="true" />
-            <element signature="e#1569#1570#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1641#1642#0" expanded="true" />
-            <element signature="e#1669#1670#0" expanded="true" />
-            <element signature="e#1711#1712#0" expanded="true" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1783#1784#0" expanded="true" />
-            <element signature="e#1817#1818#0" expanded="true" />
-            <element signature="e#1871#1872#0" expanded="true" />
-            <element signature="e#1917#1918#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#1997#1998#0" expanded="true" />
-            <element signature="e#2059#2060#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-            <element signature="e#2150#2151#0" expanded="true" />
-            <element signature="e#2181#2182#0" expanded="true" />
-            <element signature="e#2231#2232#0" expanded="true" />
-            <element signature="e#2271#2272#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="59" column="36" lean-forward="true" selection-start-line="59" selection-start-column="36" selection-end-line="59" selection-end-column="36" />
         </state>
       </provider>
     </entry>
