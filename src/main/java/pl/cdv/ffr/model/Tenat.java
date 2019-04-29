@@ -2,7 +2,7 @@ package pl.cdv.ffr.model;
 
 import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @DynamicUpdate
@@ -16,10 +16,17 @@ public class Tenat extends BaseEntity {
     private String phoneNumber;
     private String propertyAddress;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "TENAT_PROPERTY",
+            joinColumns = {@JoinColumn(name = "TENAT_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "PROPERTY_ID", referencedColumnName = "ID")})
+    private Property property;
+
     public Tenat() {
     }
 
-    public Tenat(String firstName, String lastName, String pesel, String idNumber, String email, String phoneNumber, String propertyAddress) {
+    public Tenat(String firstName, String lastName, String pesel, String idNumber, String email, String phoneNumber, String propertyAddress, Property property) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.pesel = pesel;
@@ -27,6 +34,7 @@ public class Tenat extends BaseEntity {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.propertyAddress = propertyAddress;
+        this.property = property;
     }
 
     public String getFirstName() {
@@ -83,5 +91,13 @@ public class Tenat extends BaseEntity {
 
     public void setPropertyAddress(String propertyAddress) {
         this.propertyAddress = propertyAddress;
+    }
+
+    public Property getProperty() {
+        return property;
+    }
+
+    public void setProperty(Property property) {
+        this.property = property;
     }
 }
