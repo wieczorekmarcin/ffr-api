@@ -6,12 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @DynamicUpdate
-public class Bill {
-
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Bill extends BaseEntity {
 
     @OneToOne(cascade=CascadeType.ALL)
     private Electricity electricity;
@@ -26,29 +21,29 @@ public class Bill {
     private HotWater hotWater;
 
     @OneToOne(cascade=CascadeType.ALL)
-    private Trash trash;
+    private CommonPart commonPart;
 
     @OneToOne(cascade=CascadeType.ALL)
+    private RepairFund repairFund;
+
+    @OneToOne(cascade=CascadeType.ALL)
+    private Trash trash;
+
+    @OneToOne(cascade=CascadeType.MERGE)
     private Property property;
 
     public Bill() {
     }
-
-    public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, Trash trash, Property property) {
+    
+    public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, CommonPart commonPart, RepairFund repairFund, Trash trash, Property property) {
         this.electricity = electricity;
         this.heating = heating;
         this.coldWater = coldWater;
         this.hotWater = hotWater;
+        this.commonPart = commonPart;
+        this.repairFund = repairFund;
         this.trash = trash;
         this.property = property;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public Electricity getElectricity() {
@@ -81,6 +76,22 @@ public class Bill {
 
     public void setHotWater(HotWater hotWater) {
         this.hotWater = hotWater;
+    }
+
+    public CommonPart getCommonPart() {
+        return commonPart;
+    }
+
+    public void setCommonPart(CommonPart commonPart) {
+        this.commonPart = commonPart;
+    }
+
+    public RepairFund getRepairFund() {
+        return repairFund;
+    }
+
+    public void setRepairFund(RepairFund repairFund) {
+        this.repairFund = repairFund;
     }
 
     public Trash getTrash() {

@@ -1,14 +1,11 @@
 package pl.cdv.ffr.model;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
 @Table(name = "AUTHORITY")
-@JsonPropertyOrder({ "id", "name", "users"})
 public class Authority {
 
     @Id

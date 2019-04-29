@@ -1,6 +1,9 @@
 package pl.cdv.ffr.model;
 
-public class BaseMedia {
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+public class BaseMedia extends BaseEntity {
 
     private String value;
     private String rate;

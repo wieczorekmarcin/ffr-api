@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class BillService extends BaseService{
+public class BillService extends BaseService {
 
     @Autowired
     BillRepository billRepository;

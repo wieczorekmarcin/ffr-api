@@ -8,11 +8,6 @@ import javax.persistence.*;
 @DynamicUpdate
 public class HotWater extends BaseMedia {
 
-    @Id
-    @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     public HotWater() {
     }
 
@@ -20,11 +15,4 @@ public class HotWater extends BaseMedia {
         super(value, rate, unit);
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
