@@ -1,14 +1,25 @@
 package pl.cdv.ffr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.Bill;
 import pl.cdv.ffr.model.Property;
 import pl.cdv.ffr.model.PropertyStatus;
+import pl.cdv.ffr.model.Tenat;
 import pl.cdv.ffr.service.BillService;
 import pl.cdv.ffr.service.PropertyService;
+import pl.cdv.ffr.service.TenatService;
+import pl.cdv.ffr.utils.RaportUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -20,6 +31,9 @@ public class PropertyController {
 
     @Autowired
     BillService billService;
+
+    @Autowired
+    TenatService tenatService;
 
     @RequestMapping(path = "/properties", method = RequestMethod.GET)
     public List<Property> getAllProperties(HttpServletRequest request, @RequestParam(value = "status", required = false) PropertyStatus propertyStatus) {
@@ -73,5 +87,27 @@ public class PropertyController {
     @RequestMapping(path = "/properties/{property_ID}/bills/{bill_ID}", method = RequestMethod.DELETE)
     public void deletePropertyBill(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) {
         billService.deletePropertyBill(request, property_ID, bill_ID);
+    }
+
+    @RequestMapping(value = "/properties/{property_ID}/bills/{bill_ID}/invoice", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> generateInvoice(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) throws IOException {
+
+        Bill bill = billService.findPropertyBillById(request, property_ID, bill_ID);
+        Property property = propertyService.findPropertyById(request, property_ID);
+        Tenat tenat = tenatService.findAllTenats().stream()
+                .filter(t -> t.getProperty().getId() == Long.parseLong(property_ID))
+                .findFirst()
+                .get();
+
+        ByteArrayInputStream bis = RaportUtil.generateInvoice(tenat, property, bill);
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=invoice_" + new SimpleDateFormat("yyyy-MM-dd:MM:ss").format(new Date()) + ".pdf");
+
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
     }
 }
