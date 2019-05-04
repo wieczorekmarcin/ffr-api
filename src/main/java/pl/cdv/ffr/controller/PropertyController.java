@@ -60,7 +60,7 @@ public class PropertyController {
         return billService.findPropertyBillById(request, property_ID, bill_ID);
     }
 
-    @RequestMapping(path = "/properties/{property_ID}/bills/", method = RequestMethod.POST)
+    @RequestMapping(path = "/properties/{property_ID}/bills", method = RequestMethod.POST)
     public Bill createPropertyBill(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @RequestBody Bill bill) {
         return billService.createPropertyBill(request, property_ID, bill);
     }
