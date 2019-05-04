@@ -7,7 +7,6 @@ import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.model.User;
 import pl.cdv.ffr.model.UserType;
 import pl.cdv.ffr.service.JwtUserDetailsService;
-import pl.cdv.ffr.utils.JwtTokenUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -20,16 +19,11 @@ public class UserController {
     private String tokenHeader;
 
     @Autowired
-    private JwtTokenUtil jwtTokenUtil;
-
-    @Autowired
     private  JwtUserDetailsService userService;
 
     @RequestMapping(path = "/userInfo", method = RequestMethod.GET)
     public JwtUser getUserInfo(HttpServletRequest request) {
-        String token = request.getHeader(tokenHeader).substring(7);
-        String username = jwtTokenUtil.getUsernameFromToken(token);
-        JwtUser user = userService.loadUserByUsername(username);
+        JwtUser user = userService.getUserInfo(request, tokenHeader);
         return user;
     }
 

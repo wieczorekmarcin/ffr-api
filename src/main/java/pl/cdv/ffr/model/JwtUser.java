@@ -10,13 +10,14 @@ import java.util.Date;
 public class JwtUser implements UserDetails {
 
     private final Long id;
-    private final String username
-            ;
+    private final String username;
     private final String firstname;
     private final String lastname;
     private final String password;
     private final String email;
     private final UserType userType;
+    private Rentier rentier;
+    private Tenat tenat;
     private final Collection<? extends GrantedAuthority> authorities;
     private final boolean enabled;
     private final Date lastPasswordResetDate;
@@ -28,6 +29,8 @@ public class JwtUser implements UserDetails {
           String lastname,
           String email,
           UserType userType,
+          Rentier rentier,
+          Tenat tenat,
           String password, Collection<? extends GrantedAuthority> authorities,
           boolean enabled,
           Date lastPasswordResetDate
@@ -38,6 +41,8 @@ public class JwtUser implements UserDetails {
         this.lastname = lastname;
         this.email = email;
         this.userType = userType;
+        this.rentier = rentier;
+        this.tenat = tenat;
         this.password = password;
         this.authorities = authorities;
         this.enabled = enabled;
@@ -94,11 +99,13 @@ public class JwtUser implements UserDetails {
         return password;
     }
 
+    @JsonIgnore
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
+    @JsonIgnore
     @Override
     public boolean isEnabled() {
         return enabled;
@@ -107,5 +114,21 @@ public class JwtUser implements UserDetails {
     @JsonIgnore
     public Date getLastPasswordResetDate() {
         return lastPasswordResetDate;
+    }
+
+    public Rentier getRentier() {
+        return rentier;
+    }
+
+    public void setRentier(Rentier rentier) {
+        this.rentier = rentier;
+    }
+
+    public Tenat getTenat() {
+        return tenat;
+    }
+
+    public void setTenat(Tenat tenat) {
+        this.tenat = tenat;
     }
 }

@@ -3,6 +3,7 @@ package pl.cdv.ffr.service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import pl.cdv.ffr.model.JwtUser;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,5 +25,13 @@ public class BaseService {
         }
         String[] result = new String[emptyNames.size()];
         return emptyNames.toArray(result);
+    }
+
+    public boolean isRentier(JwtUser user) {
+        if (user.getRentier() != null && user.getRentier().getId() != null) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

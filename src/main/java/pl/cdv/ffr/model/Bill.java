@@ -30,6 +30,10 @@ public class Bill extends BaseEntity {
     private Trash trash;
 
     @OneToOne(cascade=CascadeType.MERGE)
+    @JoinTable(
+            name = "BILL_TENAT",
+            joinColumns = {@JoinColumn(name = "BILL_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "TENAT_ID", referencedColumnName = "ID")})
     private Tenat tenat;
 
     public Bill() {

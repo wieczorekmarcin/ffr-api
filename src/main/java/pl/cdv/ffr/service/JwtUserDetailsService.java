@@ -8,7 +8,9 @@ import pl.cdv.ffr.model.JwtUser;
 import pl.cdv.ffr.model.User;
 import pl.cdv.ffr.model.UserType;
 import pl.cdv.ffr.repository.UserRepository;
+import pl.cdv.ffr.utils.JwtTokenUtil;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,6 +19,9 @@ public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private JwtTokenUtil jwtTokenUtil;
 
     @Override
     public JwtUser loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -27,6 +32,13 @@ public class JwtUserDetailsService implements UserDetailsService {
         } else {
             return JwtUserFactory.create(user);
         }
+    }
+
+    public JwtUser getUserInfo(HttpServletRequest request, String tokenHeader) {
+        String token = request.getHeader(tokenHeader).substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+        JwtUser user = this.loadUserByUsername(username);
+        return user;
     }
 
     public List<JwtUser> findAllUsers() {

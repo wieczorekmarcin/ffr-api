@@ -6,6 +6,7 @@ import pl.cdv.ffr.model.Property;
 import pl.cdv.ffr.model.PropertyStatus;
 import pl.cdv.ffr.service.PropertyService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -16,31 +17,31 @@ public class PropertyController {
     PropertyService propertyService;
 
     @RequestMapping(path = "/properties", method = RequestMethod.GET)
-    public List<Property> getAllPropertysWithParams(@RequestParam(value = "status", required = false) PropertyStatus propertyStatus) {
+    public List<Property> getAllPropertiesForRentier(HttpServletRequest request, @RequestParam(value = "status", required = false) PropertyStatus propertyStatus) {
         if (propertyStatus != null) {
-            return propertyService.findPropertysByStatus(propertyStatus);
+            return propertyService.findPropertysByStatus(request, propertyStatus);
         } else {
-            return propertyService.findAllPropertys();
+            return propertyService.findAllPropertys(request);
         }
     }
 
     @RequestMapping(path = "/properties/{id}", method = RequestMethod.GET)
-    public Property getProperty(@PathVariable("id") String id) {
-        return propertyService.findPropertyById(id);
+    public Property getPropertyForRentier(HttpServletRequest request, @PathVariable("id") String id) {
+        return propertyService.findPropertyById(request, id);
     }
 
     @RequestMapping(path = "/properties", method = RequestMethod.POST)
-    public Property createProperty(@RequestBody Property property) {
-        return propertyService.createProperty(property);
+    public Property createPropertyByRetier(HttpServletRequest request, @RequestBody Property property) {
+        return propertyService.createProperty(request, property);
     }
 
     @RequestMapping(path = "/properties/{id}", method = RequestMethod.PUT)
-    public Property updateProperty(@RequestBody Property property, @PathVariable("id") String id) {
-        return propertyService.updateProperty(property, id);
+    public Property updatePropertyByRentier(HttpServletRequest request, @RequestBody Property property, @PathVariable("id") String id) {
+        return propertyService.updateProperty(request, property, id);
     }
 
     @RequestMapping(path = "/properties/{id}", method = RequestMethod.DELETE)
-    public void deleteProperty(@PathVariable("id") String id) {
-        propertyService.deleteProperty(id);
+    public void deletePropertyByRentier(HttpServletRequest request, @PathVariable("id") String id) {
+        propertyService.deleteProperty(request, id);
     }
 }

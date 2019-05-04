@@ -56,6 +56,20 @@ public class User extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "AUTHORITY_ID", referencedColumnName = "ID")})
     private List<Authority> authorities;
 
+    @OneToOne(cascade=CascadeType.MERGE)
+    @JoinTable(
+            name = "USER_RENTIER",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "RENTIER_ID", referencedColumnName = "ID")})
+    private Rentier rentier;
+
+    @OneToOne(cascade=CascadeType.MERGE)
+    @JoinTable(
+            name = "USER_TENAT",
+            joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
+            inverseJoinColumns = {@JoinColumn(name = "TENAT_ID", referencedColumnName = "ID")})
+    private Tenat tenat;
+
     public String getUsername() {
         return username;
     }
@@ -126,5 +140,21 @@ public class User extends BaseEntity {
 
     public void setLastPasswordResetDate(Date lastPasswordResetDate) {
         this.lastPasswordResetDate = lastPasswordResetDate;
+    }
+
+    public Rentier getRentier() {
+        return rentier;
+    }
+
+    public void setRentier(Rentier rentier) {
+        this.rentier = rentier;
+    }
+
+    public Tenat getTenat() {
+        return tenat;
+    }
+
+    public void setTenat(Tenat tenat) {
+        this.tenat = tenat;
     }
 }

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.Bill;
 import pl.cdv.ffr.service.BillService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -15,27 +16,27 @@ public class BillController {
     BillService billService;
 
     @RequestMapping(path = "/bills", method = RequestMethod.GET)
-    public List<Bill> getAllBills() {
-        return billService.findAllBills();
+    public List<Bill> getAllBills(HttpServletRequest request) {
+        return billService.findAllBills(request);
     }
 
     @RequestMapping(path = "/bills/{id}", method = RequestMethod.GET)
-    public Bill getBill(@PathVariable("id") String id) {
-        return billService.findBillById(id);
+    public Bill getBill(HttpServletRequest request, @PathVariable("id") String id) {
+        return billService.findBillById(request, id);
     }
 
     @RequestMapping(path = "/bills", method = RequestMethod.POST)
-    public Bill createBill(@RequestBody Bill property) {
-        return billService.createBill(property);
+    public Bill createBill(HttpServletRequest request, @RequestBody Bill property) {
+        return billService.createBill(request, property);
     }
 
     @RequestMapping(path = "/bills/{id}", method = RequestMethod.PUT)
-    public Bill updateBill(@RequestBody Bill property, @PathVariable("id") String id) {
-        return billService.updateBill(property, id);
+    public Bill updateBill(HttpServletRequest request, @RequestBody Bill property, @PathVariable("id") String id) {
+        return billService.updateBill(request, property, id);
     }
 
     @RequestMapping(path = "/bills/{id}", method = RequestMethod.DELETE)
-    public void deleteBill(@PathVariable("id") String id) {
-        billService.deleteBill(id);
+    public void deleteBill(HttpServletRequest request, @PathVariable("id") String id) {
+        billService.deleteBill(request, id);
     }
 }

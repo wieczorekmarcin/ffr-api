@@ -8,8 +8,12 @@ import javax.persistence.*;
 @DynamicUpdate
 public class Tenat extends BaseEntity {
 
+    @Column(name = "FIRSTNAME", length = 50)
     private String firstName;
+
+    @Column(name = "LASTNAME", length = 50)
     private String lastName;
+
     private String pesel;
     private String idNumber;
     private String email;
