@@ -38,7 +38,7 @@ public class PropertyService extends BaseService {
     @Autowired
     FTPHelper ftpHelper;
 
-    public List<Property> findAllPropertys(HttpServletRequest request) {
+    public List<Property> findAllProperties(HttpServletRequest request) {
         JwtUser user = userService.getUserInfo(request, tokenHeader);
         List<Property> properties = new ArrayList<>();
         if (isRentier(user)) {
@@ -113,7 +113,6 @@ public class PropertyService extends BaseService {
         }
         throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't update property");
     }
-
 
     public void deleteProperty(HttpServletRequest request, String id) {
         JwtUser user = userService.getUserInfo(request, tokenHeader);

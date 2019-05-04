@@ -4,14 +4,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.cdv.ffr.model.*;
+import pl.cdv.ffr.model.Bill;
+import pl.cdv.ffr.model.JwtUser;
+import pl.cdv.ffr.model.Property;
 import pl.cdv.ffr.repository.BillRepository;
-import pl.cdv.ffr.repository.UserRepository;
+import pl.cdv.ffr.repository.PropertyRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class BillService extends BaseService {
@@ -20,7 +21,7 @@ public class BillService extends BaseService {
     BillRepository billRepository;
 
     @Autowired
-    UserRepository userRepository;
+    PropertyRepository propertyRepository;
 
     @Autowired
     private  JwtUserDetailsService userService;
@@ -28,83 +29,111 @@ public class BillService extends BaseService {
     @Value("${jwt.header}")
     private String tokenHeader;
 
-    public List<Bill> findAllBills(HttpServletRequest request) {
+    public List<Bill> findAllPropertyBills(HttpServletRequest request, String property_ID) {
         JwtUser user = userService.getUserInfo(request, tokenHeader);
         List<Bill> bills = new ArrayList<>();
         if (isRentier(user)) {
-            bills = user.getRentier().getBills();
+            user.getRentier().getProperties().forEach(p -> {
+                if (p.getId() == Long.parseLong(property_ID)) {
+                    p.getBills().forEach(b -> {
+                        bills.add(b);
+                    });
+                }
+            });
+            return bills;
         } else {
-            bills = billRepository.findAll().stream()
-                    .filter(b -> b.getTenat().getId() == user.getTenat().getId())
-                    .collect(Collectors.toList());
+            throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't get property with id" +  property_ID + ". Try to get Bills by using getBillsForTenat method.");
         }
-        return bills;
     }
 
-    public Bill findBillById(HttpServletRequest request, String id) {
+    public Bill findPropertyBillById(HttpServletRequest request, String property_ID, String bill_ID) {
         JwtUser user = userService.getUserInfo(request, tokenHeader);
-        Bill bill;
         if (isRentier(user)) {
-            bill = user.getRentier().getBills().stream()
-                    .filter(b -> b.getId() == Long.parseLong(id))
-                    .findFirst()
-                    .get();
+            for (Property property : user.getRentier().getProperties()) {
+                if (property.getId() == Long.parseLong(property_ID)) {
+                    for (Bill bill : property.getBills()) {
+                        if (bill.getId() == Long.parseLong(bill_ID)) {
+                            return bill;
+                        }
+                    }
+                }
+            }
         } else {
-            bill = billRepository.findAll().stream()
-                    .filter(b -> b.getTenat().getId() == user.getTenat().getId())
-                    .filter(b -> b.getId() == Long.parseLong(id))
-                    .findFirst()
-                    .get();
+            if (user.getTenat().getProperty().getId() == Long.parseLong(property_ID)) {
+                for (Bill bill : user.getTenat().getProperty().getBills()) {
+                    if (bill.getId() == Long.parseLong(bill_ID)) {
+                        return bill;
+                    }
+                }
+            }
         }
-
-        return bill;
+        throw new UsernameNotFoundException("User " + user.getEmail() + " has no property with id:" + property_ID + " or bill with id:" + bill_ID);
     }
 
-    public Bill createBill(HttpServletRequest request, Bill bill) {
+    public Bill createPropertyBill(HttpServletRequest request, String property_ID, Bill bill) {
         JwtUser u1 = userService.getUserInfo(request, tokenHeader);
         if (isRentier(u1)) {
             billRepository.save(bill);
 
-            User u2 = userRepository.findById(u1.getId()).get();
-            List<Bill> bills = u2.getRentier().getBills();
-            bills.add(bill);
-            userRepository.save(u2);
-
-            return bill;
-        }
-        throw new UsernameNotFoundException("User " + u1.getEmail() + " is a tenat. He can't create property");
-    }
-
-    public Bill updateBill(HttpServletRequest request, Bill newBill, String id) {
-        JwtUser user = userService.getUserInfo(request, tokenHeader);
-        if (isRentier(user)) {
-            return user.getRentier().getBills().stream()
-                    .filter(bill -> bill.getId() == Long.parseLong(id))
-                    .findFirst()
-                    .map(property -> {
-                        copyNonNullProperties(newBill, property);
-                        return billRepository.save(property);
-                    })
-                    .orElseGet(() -> {
-                        newBill.setId(Long.parseLong(id));
-                        return billRepository.save(newBill);
-                    });
-        }
-        throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't update bill");
-    }
-
-
-    public void deleteBill(HttpServletRequest request, String id) {
-        JwtUser user = userService.getUserInfo(request, tokenHeader);
-        if (isRentier(user)) {
-            Bill bill = user.getRentier().getBills().stream()
-                    .filter(p -> p.getId() == Long.parseLong(id))
+            Property property = u1.getRentier().getProperties().stream()
+                    .filter(p -> p.getId() == Long.parseLong(property_ID))
                     .findFirst()
                     .get();
 
-            billRepository.delete(bill);
+            List<Bill> bills = property.getBills();
+            bills.add(bill);
+            property.setBills(bills);
+
+            propertyRepository.save(property);
+
+            return bill;
+        } else {
+            throw new UsernameNotFoundException("User " + u1.getEmail() + " is a tenat. He can't create property");
         }
-        throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't delete bill");
     }
 
+    public Bill updatePropertyBill(HttpServletRequest request, String property_ID, String bill_ID, Bill newBill) {
+        JwtUser user = userService.getUserInfo(request, tokenHeader);
+        if (isRentier(user)) {
+            Property property = user.getRentier().getProperties().stream()
+                    .filter(p -> p.getId() == Long.parseLong(property_ID))
+                    .findFirst()
+                    .get();
+
+            return  property.getBills().stream()
+                    .filter(b -> b.getId() == Long.parseLong(bill_ID))
+                    .findFirst()
+                    .map(bill -> {
+                        copyNonNullProperties(newBill, bill);
+                        return billRepository.save(bill);
+                    })
+                    .orElseGet(() -> {
+                        newBill.setId(Long.parseLong(bill_ID));
+                        return billRepository.save(newBill);
+                    });
+        } else {
+            throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't update property");
+        }
+    }
+
+    public void deletePropertyBill(HttpServletRequest request, String property_ID, String bill_ID) {
+        JwtUser user = userService.getUserInfo(request, tokenHeader);
+        if (isRentier(user)) {
+            Bill bill = null;
+            for (Property property : user.getRentier().getProperties()) {
+                if (property.getId() == Long.parseLong(property_ID)) {
+                    for (Bill b : property.getBills()) {
+                        if (b.getId() == Long.parseLong(bill_ID)) {
+                            bill = b;
+                        }
+                    }
+                }
+            }
+            if (bill != null) {
+                billRepository.delete(bill);
+            }
+        } else {
+            throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't delete bill");
+        }
+    }
 }

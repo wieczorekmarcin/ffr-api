@@ -11,8 +11,7 @@ public class HotWater extends BaseMedia {
     public HotWater() {
     }
 
-    public HotWater(String value, String rate, String unit) {
-        super(value, rate, unit);
+    public HotWater(String rate, String used, String unit, String date, String amount, String currency) {
+        super(rate, used, unit, date, amount, currency);
     }
-
 }

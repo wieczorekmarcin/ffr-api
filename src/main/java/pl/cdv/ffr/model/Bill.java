@@ -29,17 +29,10 @@ public class Bill extends BaseEntity {
     @OneToOne(cascade=CascadeType.ALL)
     private Trash trash;
 
-    @OneToOne(cascade=CascadeType.MERGE)
-    @JoinTable(
-            name = "BILL_TENAT",
-            joinColumns = {@JoinColumn(name = "BILL_ID", referencedColumnName = "ID")},
-            inverseJoinColumns = {@JoinColumn(name = "TENAT_ID", referencedColumnName = "ID")})
-    private Tenat tenat;
-
     public Bill() {
     }
 
-    public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, CommonPart commonPart, RepairFund repairFund, Trash trash, Tenat tenat) {
+    public Bill(Electricity electricity, Heating heating, ColdWater coldWater, HotWater hotWater, CommonPart commonPart, RepairFund repairFund, Trash trash) {
         this.electricity = electricity;
         this.heating = heating;
         this.coldWater = coldWater;
@@ -47,7 +40,6 @@ public class Bill extends BaseEntity {
         this.commonPart = commonPart;
         this.repairFund = repairFund;
         this.trash = trash;
-        this.tenat = tenat;
     }
 
     public Electricity getElectricity() {
@@ -104,13 +96,5 @@ public class Bill extends BaseEntity {
 
     public void setTrash(Trash trash) {
         this.trash = trash;
-    }
-
-    public Tenat getTenat() {
-        return tenat;
-    }
-
-    public void setTenat(Tenat tenat) {
-        this.tenat = tenat;
     }
 }

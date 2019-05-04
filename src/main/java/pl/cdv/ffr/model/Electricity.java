@@ -11,8 +11,7 @@ public class Electricity extends BaseMedia {
     public Electricity() {
     }
 
-    public Electricity(String value, String rate, String unit) {
-        super(value, rate, unit);
+    public Electricity(String rate, String used, String unit, String date, String amount, String currency) {
+        super(rate, used, unit, date, amount, currency);
     }
-
 }

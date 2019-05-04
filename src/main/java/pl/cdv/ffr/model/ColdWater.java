@@ -11,8 +11,7 @@ public class ColdWater extends BaseMedia {
     public ColdWater() {
     }
 
-    public ColdWater(String value, String rate, String unit) {
-        super(value, rate, unit);
+    public ColdWater(String rate, String used, String unit, String date, String amount, String currency) {
+        super(rate, used, unit, date, amount, currency);
     }
-
 }

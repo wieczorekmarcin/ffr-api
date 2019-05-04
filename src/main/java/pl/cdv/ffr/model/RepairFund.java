@@ -11,8 +11,7 @@ public class RepairFund extends BaseMedia {
     public RepairFund() {
     }
 
-    public RepairFund(String value, String rate, String unit) {
-        super(value, rate, unit);
+    public RepairFund(String rate, String used, String unit, String date, String amount, String currency) {
+        super(rate, used, unit, date, amount, currency);
     }
-
 }
