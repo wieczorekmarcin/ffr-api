@@ -4,14 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.cdv.ffr.model.Bill;
-import pl.cdv.ffr.model.JwtUser;
-import pl.cdv.ffr.model.Property;
+import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.repository.BillRepository;
 import pl.cdv.ffr.repository.PropertyRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -135,5 +134,55 @@ public class BillService extends BaseService {
         } else {
             throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't delete bill");
         }
+    }
+
+    public CalculateResponse calculate(HttpServletRequest request, String property_ID, BillType billType, String status, String rate) {
+        JwtUser user = userService.getUserInfo(request, tokenHeader);
+        List<String> lastStatuses = new ArrayList<>();
+
+        if (isRentier(user)) {
+            for (Property property : user.getRentier().getProperties()) {
+                if (property.getId() == Long.parseLong(property_ID)) {
+                    for (Bill bill : property.getBills()) {
+                        if (billType == BillType.COLD_WATER)
+                            lastStatuses.add(bill.getColdWater().getStatus());
+                        if (billType == BillType.COMMON_PART)
+                            lastStatuses.add(bill.getCommonPart().getStatus());
+                        if (billType == BillType.ELECTRICITY)
+                            lastStatuses.add(bill.getElectricity().getStatus());
+                        if (billType == BillType.HEATING)
+                            lastStatuses.add(bill.getHeating().getStatus());
+                        if (billType == BillType.HOT_WATER)
+                            lastStatuses.add(bill.getHotWater().getStatus());
+                        if (billType == BillType.REPAIR_FOUND)
+                            lastStatuses.add(bill.getRepairFund().getStatus());
+                        if (billType == BillType.TRASH)
+                            lastStatuses.add(bill.getTrash().getStatus());
+                    }
+                }
+            }
+
+            if (lastStatuses.isEmpty() || lastStatuses.contains(null)) {
+                throw new UsernameNotFoundException("User " + user.getEmail() + " has no any defined bill status");
+            }
+
+            String lastStatus = lastStatuses.stream()
+                    .sorted(Comparator.reverseOrder())
+                    .findFirst()
+                    .get();
+
+            Double used = Double.parseDouble(status) - Double.parseDouble(lastStatus);
+            Double amount = used * Double.parseDouble(rate);
+
+            CalculateResponse response = new CalculateResponse();
+            response.setUsed(used.toString());
+            response.setAmount(amount.toString());
+
+            return response;
+
+        } else {
+            throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't calculate bill");
+        }
+
     }
 }

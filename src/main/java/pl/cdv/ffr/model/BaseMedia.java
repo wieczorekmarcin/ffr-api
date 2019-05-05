@@ -16,7 +16,6 @@ public class BaseMedia extends BaseEntity {
     public BaseMedia() {
     }
 
-
     public BaseMedia(String status, String rate, String used, String date, String amount, String unit) {
         this.status = status;
         this.rate = rate;

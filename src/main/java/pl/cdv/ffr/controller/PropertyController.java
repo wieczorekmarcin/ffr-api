@@ -6,10 +6,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.cdv.ffr.model.Bill;
-import pl.cdv.ffr.model.Property;
-import pl.cdv.ffr.model.PropertyStatus;
-import pl.cdv.ffr.model.Tenat;
+import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.service.BillService;
 import pl.cdv.ffr.service.PropertyService;
 import pl.cdv.ffr.service.TenatService;
@@ -87,6 +84,11 @@ public class PropertyController {
     @RequestMapping(path = "/properties/{property_ID}/bills/{bill_ID}", method = RequestMethod.DELETE)
     public void deletePropertyBill(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) {
         billService.deletePropertyBill(request, property_ID, bill_ID);
+    }
+
+    @RequestMapping(path = "/properties/{property_ID}/bills/calculate", method = RequestMethod.GET)
+    public CalculateResponse calculate(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @RequestParam(value = "status", required = true) String status, @RequestParam(value = "billType", required = true) BillType billType, @RequestParam(value = "rate", required = true) String rate) {
+        return billService.calculate(request, property_ID, billType, status, rate);
     }
 
     @RequestMapping(value = "/properties/{property_ID}/bills/{bill_ID}/invoice", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)

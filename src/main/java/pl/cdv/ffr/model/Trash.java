@@ -13,7 +13,7 @@ public class Trash extends BaseMedia {
     public Trash() {
     }
 
-    public Trash(String status, String rate, String used, String date, String amount, String unit) {
+    public Trash(String status, String rate, String used, String date, String amount, String unit, String unit1) {
         super(status, rate, used, date, amount, unit);
     }
 
