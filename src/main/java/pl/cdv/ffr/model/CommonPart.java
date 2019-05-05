@@ -8,10 +8,22 @@ import javax.persistence.Entity;
 @DynamicUpdate
 public class CommonPart extends BaseMedia {
 
+    private String unit = "";
+
     public CommonPart() {
     }
 
-    public CommonPart(String rate, String used, String unit, String date, String amount, String currency) {
-        super(rate, used, unit, date, amount, currency);
+    public CommonPart(String status, String rate, String used, String date, String amount, String unit) {
+        super(status, rate, used, date, amount, unit);
+    }
+
+    @Override
+    public String getUnit() {
+        return unit;
+    }
+
+    @Override
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }
