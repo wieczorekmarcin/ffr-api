@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.*;
+import pl.cdv.ffr.service.AlertService;
 import pl.cdv.ffr.service.BillService;
 import pl.cdv.ffr.service.PropertyService;
 import pl.cdv.ffr.service.TenatService;
@@ -31,6 +32,9 @@ public class PropertyController {
 
     @Autowired
     TenatService tenatService;
+
+    @Autowired
+    AlertService alertService;
 
     @RequestMapping(path = "/properties", method = RequestMethod.GET)
     public List<Property> getAllProperties(HttpServletRequest request, @RequestParam(value = "status", required = false) PropertyStatus propertyStatus) {
@@ -61,14 +65,34 @@ public class PropertyController {
         propertyService.deleteProperty(request, property_ID);
     }
 
+    @RequestMapping(path = "/properties/{property_ID}/alerts", method = RequestMethod.GET)
+    public List<Alert> getAllPropertyAlerts(HttpServletRequest request, @PathVariable("property_ID") String property_ID) {
+        return alertService.findAllPropertyAlerts(request, property_ID);
+    }
+
+    @RequestMapping(path = "/properties/{property_ID}/alerts/{alert_ID}", method = RequestMethod.GET)
+    public Alert getPropertyAlertById(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("alert_ID") String alert_ID) {
+        return alertService.findPropertyAlertById(request, property_ID, alert_ID);
+    }
+
+    @RequestMapping(path = "/properties/{property_ID}/alerts", method = RequestMethod.POST)
+    public Alert createPropertyAlert(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @RequestBody Alert alert) {
+        return alertService.createPropertyAlert(request, property_ID, alert);
+    }
+
+    @RequestMapping(path = "/properties/{property_ID}/alerts/{alert_ID}", method = RequestMethod.PUT)
+    public Alert updatePropertyAlert(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("alert_ID") String bill_ID, @RequestBody Alert alert) {
+        return alertService.updatePropertyAlert(request, property_ID, bill_ID, alert);
+    }
+
+    @RequestMapping(path = "/properties/{property_ID}/alerts/{alert_ID}", method = RequestMethod.DELETE)
+    public void deletePropertyAlert(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("alert_ID") String alert_ID) {
+        alertService.deletePropertyAlert(request, property_ID, alert_ID);
+    }
+
     @RequestMapping(path = "/properties/{property_ID}/bills", method = RequestMethod.GET)
     public List<Bill> getAllPropertyBills(HttpServletRequest request, @PathVariable("property_ID") String property_ID) {
         return billService.findAllPropertyBills(request, property_ID);
-    }
-
-    @RequestMapping(path = "/properties/{property_ID}/bills/{bill_ID}", method = RequestMethod.GET)
-    public Bill getPropertyBillById(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) {
-        return billService.findPropertyBillById(request, property_ID, bill_ID);
     }
 
     @RequestMapping(path = "/properties/{property_ID}/bills", method = RequestMethod.POST)

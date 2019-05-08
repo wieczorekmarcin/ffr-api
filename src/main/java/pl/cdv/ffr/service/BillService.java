@@ -9,6 +9,7 @@ import pl.cdv.ffr.repository.BillRepository;
 import pl.cdv.ffr.repository.PropertyRepository;
 
 import javax.servlet.http.HttpServletRequest;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -39,10 +40,15 @@ public class BillService extends BaseService {
                     });
                 }
             });
-            return bills;
         } else {
-            throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't get property with id" +  property_ID + ". Try to get Bills by using getBillsForTenat method.");
+            Property tenatProperty = user.getTenat().getProperty();
+            if (tenatProperty != null && tenatProperty.getId() == Long.parseLong(property_ID)) {
+                tenatProperty.getBills().forEach(b -> {
+                    bills.add(b);
+                });
+            }
         }
+        return bills;
     }
 
     public Bill findPropertyBillById(HttpServletRequest request, String property_ID, String bill_ID) {
@@ -171,12 +177,16 @@ public class BillService extends BaseService {
                     .findFirst()
                     .get();
 
+
             Double used = Double.parseDouble(status) - Double.parseDouble(lastStatus);
             Double amount = used * Double.parseDouble(rate);
 
+            BigDecimal usedDecimal = new BigDecimal(used).setScale(2, BigDecimal.ROUND_HALF_UP);
+            BigDecimal amountDecimal = new BigDecimal(amount).setScale(2, BigDecimal.ROUND_HALF_UP);
+
             CalculateResponse response = new CalculateResponse();
-            response.setUsed(used.toString());
-            response.setAmount(amount.toString());
+            response.setUsed(usedDecimal.toString());
+            response.setAmount(amountDecimal.toString());
 
             return response;
 

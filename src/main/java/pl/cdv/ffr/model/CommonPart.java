@@ -13,7 +13,7 @@ public class CommonPart extends BaseMedia {
     public CommonPart() {
     }
 
-    public CommonPart(String status, String rate, String used, String date, String amount, String unit, String unit1) {
+    public CommonPart(String status, String rate, String used, String date, String amount, String unit) {
         super(status, rate, used, date, amount, unit);
     }
 
