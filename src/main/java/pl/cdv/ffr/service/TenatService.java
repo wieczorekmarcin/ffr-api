@@ -58,7 +58,11 @@ public class TenatService extends BaseService {
         user.setUserType(UserType.TENAT);
         userRepository.save(user);
 
-        return tenatRepository.save(tenat);
+        Tenat toReturn = tenatRepository.save(tenat);
+
+        changePropertyStatus(tenat);
+
+        return toReturn;
     }
 
     public Tenat updateTenat(Tenat newTenat, String id) {
