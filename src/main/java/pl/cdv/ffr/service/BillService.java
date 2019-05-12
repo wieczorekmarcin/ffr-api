@@ -187,6 +187,7 @@ public class BillService extends BaseService {
             CalculateResponse response = new CalculateResponse();
             response.setUsed(usedDecimal.toString());
             response.setAmount(amountDecimal.toString());
+            response.setRate(rate);
 
             return response;
 

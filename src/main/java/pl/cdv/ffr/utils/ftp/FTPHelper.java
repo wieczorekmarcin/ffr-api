@@ -30,12 +30,11 @@ public class FTPHelper {
         return new ByteArrayInputStream(buffer.toByteArray());
     }
 
-    public String createAndSaveDecodedFile(InputStream in, String extension, Date now) throws IOException {
+    public String createAndSaveDecodedFile(InputStream in, String extension, Date now, String directoryName) throws IOException {
         org.apache.commons.vfs2.FileObject root = getBasicVFSPathPassiveIfNeeded(ftpProperties.getServer(), ftpProperties.getUsername(), ftpProperties.getPassword());
-        String directoryName = "/images";
         String fileName = getFileName("." + extension, now);
 
-        String fullFilePath = directoryName + "/" + fileName;
+        String fullFilePath = "/" + directoryName + "/" + fileName;
         org.apache.commons.vfs2.FileObject fileObject = root.resolveFile(fullFilePath);
         fileObject.createFile();
 

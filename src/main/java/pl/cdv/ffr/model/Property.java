@@ -46,10 +46,13 @@ public class Property extends BaseEntity {
     @OneToMany
     private List<Alert> alerts;
 
+    @OneToMany
+    private List<Invoice> invoices;
+
     public Property() {
     }
 
-    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus, List<Bill> bills, List<Alert> alerts) {
+    public Property(String title, String description, String price, String bail, String surface, String roomsNumber, String street, String postCode, String city, String buildingType, String floor, String floorsNumber, String buildingMaterial, String windows, String heating, Date availableFrom, List<String> additionalInformation, List<String> images, List<String> imagesUrls, PropertyStatus propertyStatus, List<Bill> bills, List<Alert> alerts, List<Invoice> invoices) {
         this.title = title;
         this.description = description;
         this.price = price;
@@ -72,6 +75,7 @@ public class Property extends BaseEntity {
         this.propertyStatus = propertyStatus;
         this.bills = bills;
         this.alerts = alerts;
+        this.invoices = invoices;
     }
 
     public String getTitle() {
@@ -248,5 +252,13 @@ public class Property extends BaseEntity {
 
     public void setAlerts(List<Alert> alerts) {
         this.alerts = alerts;
+    }
+
+    public List<Invoice> getInvoices() {
+        return invoices;
+    }
+
+    public void setInvoices(List<Invoice> invoices) {
+        this.invoices = invoices;
     }
 }

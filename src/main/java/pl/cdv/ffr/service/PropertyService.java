@@ -139,10 +139,11 @@ public class PropertyService extends BaseService {
                 String imageDataBytes = base64.substring(base64.indexOf(",") + 1);
                 String typeFileMime = base64.substring(0, base64.indexOf(";"));
                 String extension = typeFileMime.substring(typeFileMime.indexOf("/") + 1);
+                String directoryName = "images";
 
                 try {
                     in = ftpHelper.getDecodedInputStream(imageDataBytes, extension);
-                    fileUrl = ftpHelper.createAndSaveDecodedFile(in, extension, now);
+                    fileUrl = ftpHelper.createAndSaveDecodedFile(in, extension, now, directoryName);
                     urls.add(fileUrl);
                 } catch (IOException e) {
                     e.printStackTrace();

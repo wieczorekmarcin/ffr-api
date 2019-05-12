@@ -3,11 +3,9 @@ package pl.cdv.ffr.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import pl.cdv.ffr.model.Authority;
-import pl.cdv.ffr.model.Tenat;
-import pl.cdv.ffr.model.User;
-import pl.cdv.ffr.model.UserType;
+import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.repository.AuthorityRepository;
+import pl.cdv.ffr.repository.PropertyRepository;
 import pl.cdv.ffr.repository.TenatRepository;
 import pl.cdv.ffr.repository.UserRepository;
 
@@ -27,6 +25,9 @@ public class TenatService extends BaseService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    PropertyRepository propertyRepository;
 
     public List<Tenat> findAllTenats() {
         return tenatRepository.findAll();
@@ -64,6 +65,7 @@ public class TenatService extends BaseService {
         return tenatRepository.findById(Long.parseLong(id))
                 .map(tenat -> {
                     copyNonNullProperties(newTenat, tenat);
+                    changePropertyStatus(tenat);
                     return tenatRepository.save(tenat);
                 })
                 .orElseGet(() -> {
@@ -75,5 +77,15 @@ public class TenatService extends BaseService {
 
     public void deleteTenat(String id) {
         tenatRepository.deleteById(Long.parseLong(id));
+    }
+
+    private void changePropertyStatus(Tenat tenat) {
+        Property property = tenat.getProperty();
+        if (property == null) {
+            return;
+        } else {
+            property.setPropertyStatus(PropertyStatus.RENTED);
+            propertyRepository.save(property);
+        }
     }
 }
