@@ -15,16 +15,16 @@ public class Alert extends BaseEntity {
 
     private String description;
     private String createdDate;
-    private boolean hidden = false;
+    private boolean visible = true;
 
     public Alert() {
     }
 
-    public Alert(AlertType alertType, String description, String createdDate, boolean hidden) {
+    public Alert(AlertType alertType, String description, String createdDate, boolean visible) {
         this.alertType = alertType;
         this.description = description;
         this.createdDate = createdDate;
-        this.hidden = hidden;
+        this.visible = visible;
     }
 
     public AlertType getAlertType() {
@@ -51,11 +51,11 @@ public class Alert extends BaseEntity {
         this.createdDate = createdDate;
     }
 
-    public boolean isHidden() {
-        return hidden;
+    public boolean isVisible() {
+        return visible;
     }
 
-    public void setHidden(boolean hidden) {
-        this.hidden = hidden;
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
