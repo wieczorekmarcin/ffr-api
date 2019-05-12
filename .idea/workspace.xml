@@ -35,8 +35,8 @@
       <file leaf-file-name="TenatService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+            <state relative-caret-position="198">
+              <caret line="68" column="59" lean-forward="true" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -44,8 +44,8 @@
       <file leaf-file-name="PropertyController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="129" column="19" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="19" />
+            <state relative-caret-position="167">
+              <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="166" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -100,8 +100,8 @@
       <find>bill</find>
       <find>extension</find>
       <find>ftp</find>
-      <find>tenat</find>
       <find>changePropertyStatus</find>
+      <find>tenat</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -673,7 +673,7 @@
       <workItem from="1557093846250" duration="836000" />
       <workItem from="1557146259837" duration="17000" />
       <workItem from="1557339121847" duration="4830000" />
-      <workItem from="1557663307716" duration="8828000" />
+      <workItem from="1557663307716" duration="9212000" />
     </task>
     <servers />
   </component>
@@ -710,7 +710,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="201475000" />
+    <option name="totallyTimeSpent" value="201859000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1863" height="1092" extended-state="6" />
@@ -1288,15 +1288,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="129" column="19" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="19" />
+        <state relative-caret-position="167">
+          <caret line="162" lean-forward="true" selection-start-line="162" selection-end-line="166" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="66" lean-forward="true" selection-start-line="66" selection-end-line="66" />
+        <state relative-caret-position="198">
+          <caret line="68" column="59" lean-forward="true" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
         </state>
       </provider>
     </entry>
