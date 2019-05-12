@@ -1,10 +1,8 @@
 package pl.cdv.ffr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.service.*;
@@ -125,7 +123,7 @@ public class PropertyController {
     }
 
     @RequestMapping(value = "/properties/{property_ID}/bills/{bill_ID}/invoice", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
-    public ResponseEntity<InputStreamResource> generateInvoice(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) throws IOException {
+    public String generateInvoice(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) throws IOException {
 
         Bill bill = billService.findPropertyBillById(request, property_ID, bill_ID);
         Property property = propertyService.findPropertyById(request, property_ID);
@@ -155,13 +153,7 @@ public class PropertyController {
 
         invoiceService.createPropertyInvoice(request, property_ID, invoice);
 
-        ResponseEntity<InputStreamResource> inputStreamResourceResponseEntity = ResponseEntity
-                .ok()
-                .headers(headers)
-                .contentType(MediaType.APPLICATION_PDF)
-                .body(new InputStreamResource(bis));
-
-        return inputStreamResourceResponseEntity;
+        return fileUrl;
     }
 
     @RequestMapping(path = "/properties/{property_ID}/invoices", method = RequestMethod.GET)
