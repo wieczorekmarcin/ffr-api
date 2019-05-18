@@ -1,6 +1,8 @@
 package pl.cdv.ffr.utils;
 
 import com.itextpdf.text.pdf.BaseFont;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
@@ -8,6 +10,7 @@ import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.Context;
 import org.xhtmlrenderer.pdf.ITextRenderer;
 import pl.cdv.ffr.service.BaseService;
+import pl.cdv.ffr.service.InvoiceService;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -27,6 +30,8 @@ public class PdfGenaratorUtil {
     @Autowired
     ResourceLoader resourceLoader;
 
+    Logger logger = LoggerFactory.getLogger(InvoiceService.class);
+
     public InputStream createPdf(String templateName, Map<String, Object> map) throws Exception {
         Context ctx = new Context();
         map.forEach((k, v) -> {
@@ -37,6 +42,7 @@ public class PdfGenaratorUtil {
 
         String processedHtml = templateEngine.process(templateName, ctx);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
+        logger.debug("TEST RESOURCE"resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath());
         try {
             ITextRenderer renderer = new ITextRenderer();
             renderer.getFontResolver().addFont(resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath(),

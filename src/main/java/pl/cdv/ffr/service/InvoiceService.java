@@ -198,7 +198,6 @@ public class InvoiceService extends BaseService {
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, 1);
         data.put("dueDate", new SimpleDateFormat("dd/MM/yyyy").format(cal.getTime()));
-
         try {
             is = pdfGenaratorUtil.createPdf("template", data);
         } catch (Exception e) {
