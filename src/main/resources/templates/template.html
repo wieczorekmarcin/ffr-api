@@ -1,0 +1,170 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<html lang="pl-PL" xmlns:th="http://www.springframework.org/schema/data/jaxb">
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{http://localhost:8080/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{https://ffr-api.herokuapp.com/css/bootstrap.min.css}"/>
+        <style type='text/css'>
+            body {
+                font-family: 'Lato', sans-serif;
+                color: #404E67;
+                font-size: 14px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <div id="invoice-company-details" style="padding: 4rem; padding-bottom: 30px;">
+                <div class="company" style="margin-left: 15px; float: left;">
+                    <img src="http://wieczorekmarcin.usermd.net/ffr/images/logo.png" alt="company logo" class="img-fluid" style="width: 250px;"/>
+                    <div class="media-body" style="margin-top: 5px;">
+                        <ul class="ml-2 px-0 list-unstyled">
+                            <li class="text-bold-800">COORENT Inc.</li>
+                            <li>4025 Oak Avenue,</li>
+                            <li>Melbourne,</li>
+                            <li>Florida 32940,</li>
+                            <li>USA</li>
+                        </ul>
+                        <p><span class="text-muted">Data wystawienia faktury :</span> [[${date}]]</p>
+                    </div>
+                </div>
+                <div class="invoice-no" style="margin-left: 550px; margin-top: 10px;">
+                    <h2><b>FAKTURA</b></h2>
+                    <p class="pb-3"># FV-[[${property.id}]][[${tenat.id}]][[${bill.id}]]</p>
+                    <ul class="px-0 list-unstyled">
+                        <li class="text-bold-800">[[${tenat.firstName}]] [[${tenat.lastName}]]</li>
+                        <li>[[${tenat.email}]]</li>
+                        <li>[[${property.street}]]</li>
+                        <li>[[${property.city}]], [[${property.postCode}]]</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="invoice-items-details" style="margin-top: 50px;">
+                <div>
+                    <table class="table" style="width: 70%;">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Media</th>
+                                <th class="text-right">Zużycie</th>
+                                <th class="text-right">Stawka</th>
+                                <th class="text-right">Jednoska</th>
+                                <th class="text-right">Cena</th>
+                                <th class="text-right">Waluta</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>
+                                    <p>Prąd</p>
+                                </td>
+                                <td class="text-right">[[${bill.electricity.used}]]</td>
+                                <td class="text-right">[[${bill.electricity.rate}]]</td>
+                                <td class="text-right">[[${bill.electricity.unit}]]</td>
+                                <td class="text-right">[[${bill.electricity.amount}]]</td>
+                                <td class="text-right">[[${bill.electricity.currency}]]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>
+                                    <p>Ciepła woda</p>
+                                </td>
+                                <td class="text-right">[[${bill.hotWater.used}]]</td>
+                                <td class="text-right">[[${bill.hotWater.rate}]]</td>
+                                <td class="text-right">[[${bill.hotWater.unit}]]</td>
+                                <td class="text-right">[[${bill.hotWater.amount}]]</td>
+                                <td class="text-right">[[${bill.hotWater.currency}]]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>
+                                    <p>Zimna woda</p>
+                                </td>
+                                <td class="text-right">[[${bill.coldWater.used}]]</td>
+                                <td class="text-right">[[${bill.coldWater.rate}]]</td>
+                                <td class="text-right">[[${bill.coldWater.unit}]]</td>
+                                <td class="text-right">[[${bill.coldWater.amount}]]</td>
+                                <td class="text-right">[[${bill.coldWater.currency}]]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>
+                                    <p>Ogrzewanie</p>
+                                </td>
+                                <td class="text-right">[[${bill.heating.used}]]</td>
+                                <td class="text-right">[[${bill.heating.rate}]]</td>
+                                <td class="text-right">[[${bill.heating.unit}]]</td>
+                                <td class="text-right">[[${bill.heating.amount}]]</td>
+                                <td class="text-right">[[${bill.heating.currency}]]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>
+                                    <p>Części wspólne</p>
+                                </td>
+                                <td class="text-right">[[${bill.commonPart.used}]]</td>
+                                <td class="text-right">[[${bill.commonPart.rate}]]</td>
+                                <td class="text-right">[[${bill.commonPart.unit}]]</td>
+                                <td class="text-right">[[${bill.commonPart.amount}]]</td>
+                                <td class="text-right">[[${bill.commonPart.currency}]]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6</th>
+                                <td>
+                                    <p>Fundusz naprawczy</p>
+                                </td>
+                                <td class="text-right">[[${bill.repairFund.used}]]</td>
+                                <td class="text-right">[[${bill.repairFund.rate}]]</td>
+                                <td class="text-right">[[${bill.repairFund.unit}]]</td>
+                                <td class="text-right">[[${bill.repairFund.amount}]]</td>
+                                <td class="text-right">[[${bill.repairFund.currency}]]</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7</th>
+                                <td>
+                                    <p>Śmieci</p>
+                                </td>
+                                <td class="text-right">[[${bill.trash.used}]]</td>
+                                <td class="text-right">[[${bill.trash.rate}]]</td>
+                                <td class="text-right">[[${bill.trash.unit}]]</td>
+                                <td class="text-right">[[${bill.trash.amount}]]</td>
+                                <td class="text-right">[[${bill.trash.currency}]]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div style="margin-left: 350px; margin-top: 30px;">
+                    <div>
+                        <h3>Podsumowanie</h3>
+                        <table class="table" style="width: 65%;">
+                            <tbody>
+                            <tr>
+                                <td>Wartość (netto)</td>
+                                <td>[[${sumNonTaxed}]] PLN</td>
+                            </tr>
+                            <tr>
+                                <td>Podatek (23%)</td>
+                                <td>[[${tax}]] PLN</td>
+                            </tr>
+                            <tr>
+                                <td><b>Do zaplaty (brutto)</b></td>
+                                <td><b>[[${sumTaxed}]] PLN</b></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="text-center" style="margin-left: 200px; margin-top: 120px;">
+                    <p>Osoba uprawniona</p>
+                    <img src="http://wieczorekmarcin.usermd.net/ffr/images/signature-scan.png" alt="signature" class="height-100" style="width: 150px;" />
+                    <h6>[[${rentier.firstName}]] [[${rentier.lastName}]]</h6>
+                    <p class="text-muted">Właściciel</p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

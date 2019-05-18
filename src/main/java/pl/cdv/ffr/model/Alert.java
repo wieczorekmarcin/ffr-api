@@ -16,15 +16,19 @@ public class Alert extends BaseEntity {
     private String description;
     private String createdDate;
     private boolean visible = true;
+    private String property;
+    private String tenat;
 
     public Alert() {
     }
 
-    public Alert(AlertType alertType, String description, String createdDate, boolean visible) {
+    public Alert(AlertType alertType, String description, String createdDate, boolean visible, String property, String tenat) {
         this.alertType = alertType;
         this.description = description;
         this.createdDate = createdDate;
         this.visible = visible;
+        this.property = property;
+        this.tenat = tenat;
     }
 
     public AlertType getAlertType() {
@@ -57,5 +61,21 @@ public class Alert extends BaseEntity {
 
     public void setVisible(boolean visible) {
         this.visible = visible;
+    }
+
+    public String getProperty() {
+        return property;
+    }
+
+    public void setProperty(String property) {
+        this.property = property;
+    }
+
+    public String getTenat() {
+        return tenat;
+    }
+
+    public void setTenat(String tenat) {
+        this.tenat = tenat;
     }
 }

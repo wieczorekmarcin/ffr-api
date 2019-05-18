@@ -1,19 +1,13 @@
 package pl.cdv.ffr.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.service.*;
-import pl.cdv.ffr.utils.RaportUtil;
-import pl.cdv.ffr.utils.ftp.FTPHelper;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -34,9 +28,6 @@ public class PropertyController {
 
     @Autowired
     InvoiceService invoiceService;
-
-    @Autowired
-    FTPHelper ftpHelper;
 
     @RequestMapping(path = "/properties", method = RequestMethod.GET)
     public List<Property> getAllProperties(HttpServletRequest request, @RequestParam(value = "status", required = false) PropertyStatus propertyStatus) {
@@ -124,36 +115,7 @@ public class PropertyController {
 
     @RequestMapping(value = "/properties/{property_ID}/bills/{bill_ID}/invoice", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
     public String generateInvoice(HttpServletRequest request, @PathVariable("property_ID") String property_ID, @PathVariable("bill_ID") String bill_ID) throws IOException {
-
-        Bill bill = billService.findPropertyBillById(request, property_ID, bill_ID);
-        Property property = propertyService.findPropertyById(request, property_ID);
-        Tenat tenat = tenatService.findAllTenats().stream()
-                .filter(t -> t.getProperty().getId() == Long.parseLong(property_ID))
-                .findFirst()
-                .get();
-
-        ByteArrayInputStream bis = RaportUtil.generateInvoice(tenat, property, bill);
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.add("Content-Disposition", "inline; filename=invoice_" + new SimpleDateFormat("yyyy-MM-dd:MM:ss").format(new Date()) + ".pdf");
-
-        Date now = new Date();
-        String fileUrl = "";
-
-        try {
-            fileUrl = ftpHelper.createAndSaveDecodedFile(bis, "pdf", now, "invoices");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Invoice invoice = new Invoice();
-        invoice.setDate(new Date().toString());
-        invoice.setInvoiceType(InvoiceType.NOT_PAID);
-        invoice.setInvoiceUrl(fileUrl);
-
-        invoiceService.createPropertyInvoice(request, property_ID, invoice);
-
-        return fileUrl;
+        return invoiceService.generateInvoice(request, property_ID, bill_ID);
     }
 
     @RequestMapping(path = "/properties/{property_ID}/invoices", method = RequestMethod.GET)

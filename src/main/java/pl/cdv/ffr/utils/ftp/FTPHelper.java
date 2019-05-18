@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.util.Base64;
 import java.util.Date;
 
@@ -30,9 +31,9 @@ public class FTPHelper {
         return new ByteArrayInputStream(buffer.toByteArray());
     }
 
-    public String createAndSaveDecodedFile(InputStream in, String extension, Date now, String directoryName) throws IOException {
+    public String createAndSaveDecodedFile(InputStream in, String extension, String prefix, String directoryName) throws IOException {
         org.apache.commons.vfs2.FileObject root = getBasicVFSPathPassiveIfNeeded(ftpProperties.getServer(), ftpProperties.getUsername(), ftpProperties.getPassword());
-        String fileName = getFileName("." + extension, now);
+        String fileName = getFileName("." + extension, prefix);
 
         String fullFilePath = "/" + directoryName + "/" + fileName;
         org.apache.commons.vfs2.FileObject fileObject = root.resolveFile(fullFilePath);
@@ -49,13 +50,13 @@ public class FTPHelper {
         return ftpProperties.getBaseURI() + fullFilePath;
     }
 
-    public String getFileName(String userFileName, Date now) {
+    public String getFileName(String userFileName, String prefix) {
         String extension = "";
         int i = userFileName.lastIndexOf('.');
         if (i >= 0) {
             extension = userFileName.substring(i + 1);
         }
-        return String.valueOf(now.getTime()) + "." + extension;
+        return prefix + "_" + new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss").format(new Date()) + "." + extension;
     }
 
     public FileObject getBasicVFSPathPassiveIfNeeded(String connectionPath, String username, String password) throws FileSystemException {

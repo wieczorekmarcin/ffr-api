@@ -3,11 +3,16 @@ package pl.cdv.ffr.service;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.stereotype.Service;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import pl.cdv.ffr.model.JwtUser;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
 public class BaseService {
 
     public void copyNonNullProperties(Object src, Object target) {
@@ -33,5 +38,11 @@ public class BaseService {
         } else {
             return false;
         }
+    }
+
+    public String getCurrentBaseUrl() {
+        ServletRequestAttributes sra = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
+        HttpServletRequest req = sra.getRequest();
+        return req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath();
     }
 }

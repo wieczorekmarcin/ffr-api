@@ -4,18 +4,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.cdv.ffr.model.Invoice;
-import pl.cdv.ffr.model.JwtUser;
-import pl.cdv.ffr.model.Property;
+import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.repository.InvoiceRepository;
 import pl.cdv.ffr.repository.PropertyRepository;
+import pl.cdv.ffr.utils.PdfGenaratorUtil;
+import pl.cdv.ffr.utils.ftp.FTPHelper;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.IOException;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Service
 public class InvoiceService extends BaseService {
+    @Autowired
+    PropertyService propertyService;
+
+    @Autowired
+    BillService billService;
+
+    @Autowired
+    TenatService tenatService;
 
     @Autowired
     InvoiceRepository invoiceRepository;
@@ -25,6 +36,12 @@ public class InvoiceService extends BaseService {
 
     @Autowired
     private  JwtUserDetailsService userService;
+
+    @Autowired
+    PdfGenaratorUtil pdfGenaratorUtil;
+
+    @Autowired
+    FTPHelper ftpHelper;
 
     @Value("${jwt.header}")
     private String tokenHeader;
@@ -140,5 +157,67 @@ public class InvoiceService extends BaseService {
         } else {
             throw new UsernameNotFoundException("User " + user.getEmail() + " is a tenat. He can't delete invoice");
         }
+    }
+
+    public String generateInvoice(HttpServletRequest request, String property_ID, String bill_ID) {
+        Bill bill = billService.findPropertyBillById(request, property_ID, bill_ID);
+        Property property = propertyService.findPropertyById(request, property_ID);
+        Tenat tenat = tenatService.findAllTenats().stream()
+                .filter(t -> t.getProperty().getId() == Long.parseLong(property_ID))
+                .findFirst()
+                .get();
+        JwtUser user = userService.getUserInfo(request, tokenHeader);
+        Rentier rentier = user.getRentier();
+
+        BigDecimal coldWater = new BigDecimal(bill.getColdWater().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal commonPart = new BigDecimal(bill.getCommonPart().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal electricity = new BigDecimal(bill.getElectricity().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal heating = new BigDecimal(bill.getHeating().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal hotWater = new BigDecimal(bill.getHotWater().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal repairFund = new BigDecimal(bill.getRepairFund().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal trash = new BigDecimal(bill.getTrash().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
+
+        BigDecimal sumTaxed = coldWater.add(commonPart).add(electricity).add(heating).add(hotWater).add(repairFund).add(trash).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal tax = sumTaxed.multiply(new BigDecimal(0.23)).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal sumNonTaxed = sumTaxed.subtract(tax).setScale(2, BigDecimal.ROUND_HALF_UP);
+
+
+        String fileUrl = "";
+        InputStream is = null;
+
+        Map<String,Object> data = new HashMap<>();
+        data.put("rentier", rentier);
+        data.put("tenat", tenat);
+        data.put("property", property);
+        data.put("bill", bill);
+        data.put("sumTaxed", sumTaxed.toString());
+        data.put("tax", tax.toString());
+        data.put("sumNonTaxed", sumNonTaxed.toString());
+        data.put("date", new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.MONTH, 1);
+        data.put("dueDate", new SimpleDateFormat("dd/MM/yyyy").format(cal.getTime()));
+
+        try {
+            is = pdfGenaratorUtil.createPdf("template", data);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            fileUrl = ftpHelper.createAndSaveDecodedFile(is, "pdf", "invoice", "invoices");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Invoice invoice = new Invoice();
+        invoice.setDate(new Date().toString());
+        invoice.setInvoiceType(InvoiceType.NOT_PAID);
+        invoice.setInvoiceUrl(fileUrl);
+
+        createPropertyInvoice(request, property_ID, invoice);
+
+        return fileUrl;
     }
 }

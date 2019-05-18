@@ -143,7 +143,7 @@ public class PropertyService extends BaseService {
 
                 try {
                     in = ftpHelper.getDecodedInputStream(imageDataBytes, extension);
-                    fileUrl = ftpHelper.createAndSaveDecodedFile(in, extension, now, directoryName);
+                    fileUrl = ftpHelper.createAndSaveDecodedFile(in, extension, "image", directoryName);
                     urls.add(fileUrl);
                 } catch (IOException e) {
                     e.printStackTrace();
