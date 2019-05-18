@@ -42,7 +42,7 @@ public class PdfGenaratorUtil {
 
         String processedHtml = templateEngine.process(templateName, ctx);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        logger.debug("TEST RESOURCE"resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath());
+        logger.debug("TEST RESOURCE: " + resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath());
         try {
             ITextRenderer renderer = new ITextRenderer();
             renderer.getFontResolver().addFont(resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath(),
