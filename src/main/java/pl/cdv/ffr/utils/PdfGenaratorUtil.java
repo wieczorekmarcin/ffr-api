@@ -16,6 +16,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.Map;
 
 @Component
@@ -42,10 +43,11 @@ public class PdfGenaratorUtil {
 
         String processedHtml = templateEngine.process(templateName, ctx);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        logger.debug("TEST RESOURCE: " + resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath());
+        URL font = Thread.currentThread().getContextClassLoader().getResource("static/fonts/Lato-Regular.ttf");
+        String fontPath = font.getPath();
         try {
             ITextRenderer renderer = new ITextRenderer();
-            renderer.getFontResolver().addFont(resourceLoader.getResource("classpath:static/fonts/Lato-Regular.ttf").getURI().getPath(),
+            renderer.getFontResolver().addFont(fontPath,
                     BaseFont.IDENTITY_H,
                     BaseFont.NOT_EMBEDDED);
             renderer.setDocumentFromString(processedHtml);
