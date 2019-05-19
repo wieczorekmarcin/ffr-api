@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/AlertService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/AlertService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BaseService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BaseService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BillService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BillService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/InvoiceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/InvoiceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/PropertyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/PropertyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/BaseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/PropertyService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="src/main/resources/application.properties" />
@@ -211,8 +205,12 @@
       <file leaf-file-name="TenatService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+            <state relative-caret-position="158">
+              <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+              <folding>
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#901#902#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -318,7 +316,6 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Invoice.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/InvoiceRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/CalculateResponse.java" />
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/template.html" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/RaportUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/config/ThymeleafConfig.java" />
@@ -341,6 +338,7 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/AlertService.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BillService.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/InvoiceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" />
       </list>
     </option>
   </component>
@@ -940,7 +938,7 @@
       <workItem from="1557993210496" duration="42000" />
       <workItem from="1558038028011" duration="1818000" />
       <workItem from="1558094631568" duration="43000" />
-      <workItem from="1558206951886" duration="21729000" />
+      <workItem from="1558206951886" duration="22103000" />
     </task>
     <servers />
   </component>
@@ -977,7 +975,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245742000" />
+    <option name="totallyTimeSpent" value="246116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1863" height="1092" extended-state="6" />
@@ -1529,8 +1527,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="75" column="55" lean-forward="true" selection-start-line="75" selection-start-column="55" selection-end-line="75" selection-end-column="55" />
+        <state relative-caret-position="158">
+          <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+          <folding>
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#901#902#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

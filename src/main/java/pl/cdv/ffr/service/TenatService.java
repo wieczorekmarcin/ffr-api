@@ -30,7 +30,7 @@ public class TenatService extends BaseService {
     PropertyRepository propertyRepository;
 
     public List<Tenat> findAllTenats() {
-        return tenatRepository.findAll();
+        return (List<Tenat>) filterByVisible(tenatRepository.findAll());
     }
 
     public Tenat findTenatById(String id) {
