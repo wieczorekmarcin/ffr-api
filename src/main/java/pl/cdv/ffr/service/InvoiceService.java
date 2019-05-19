@@ -168,6 +168,7 @@ public class InvoiceService extends BaseService {
                 .get();
         JwtUser user = userService.getUserInfo(request, tokenHeader);
         Rentier rentier = user.getRentier();
+        String propertyPrice = property.getPrice().replace("zł", "");
 
         BigDecimal coldWater = new BigDecimal(bill.getColdWater().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
         BigDecimal commonPart = new BigDecimal(bill.getCommonPart().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
@@ -177,10 +178,18 @@ public class InvoiceService extends BaseService {
         BigDecimal repairFund = new BigDecimal(bill.getRepairFund().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
         BigDecimal trash = new BigDecimal(bill.getTrash().getAmount()).setScale(2, BigDecimal.ROUND_HALF_UP);;
 
-        BigDecimal sumTaxed = coldWater.add(commonPart).add(electricity).add(heating).add(hotWater).add(repairFund).add(trash).setScale(2, BigDecimal.ROUND_HALF_UP);
-        BigDecimal tax = sumTaxed.multiply(new BigDecimal(0.23)).setScale(2, BigDecimal.ROUND_HALF_UP);
-        BigDecimal sumNonTaxed = sumTaxed.subtract(tax).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal propertyPriceTaxed = new BigDecimal(propertyPrice).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal propertyPriceTax = propertyPriceTaxed.multiply(new BigDecimal(0.23)).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal propertyPriceNonTaxed = propertyPriceTaxed.subtract(propertyPriceTax).setScale(2, BigDecimal.ROUND_HALF_UP);
 
+
+        BigDecimal mediaSumTaxed = coldWater.add(commonPart).add(electricity).add(heating).add(hotWater).add(repairFund).add(trash).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal mediaTax = mediaSumTaxed.multiply(new BigDecimal(0.23)).setScale(2, BigDecimal.ROUND_HALF_UP);
+        BigDecimal mediaSumNonTaxed = mediaSumTaxed.subtract(mediaTax).setScale(2, BigDecimal.ROUND_HALF_UP);
+
+        BigDecimal sumTax = mediaTax.add(propertyPriceTax).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal sumTaxed = propertyPriceTaxed.add(mediaSumTaxed).setScale(2, BigDecimal.ROUND_HALF_UP);;
+        BigDecimal sumNonTaxed = sumTaxed.subtract(sumTax).setScale(2, BigDecimal.ROUND_HALF_UP);;
 
         String fileUrl = "";
         InputStream is = null;
@@ -190,8 +199,12 @@ public class InvoiceService extends BaseService {
         data.put("tenat", tenat);
         data.put("property", property);
         data.put("bill", bill);
+        data.put("mediaSumTaxed", mediaSumTaxed.toString());
+        data.put("mediaSumNonTaxed", mediaSumNonTaxed.toString());
+        data.put("propertySumTaxed", propertyPriceTaxed.toString());
+        data.put("propertySumNonTaxed", propertyPriceNonTaxed.toString());
+        data.put("sumTax", sumTax.toString());
         data.put("sumTaxed", sumTaxed.toString());
-        data.put("tax", tax.toString());
         data.put("sumNonTaxed", sumNonTaxed.toString());
         data.put("date", new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
 
