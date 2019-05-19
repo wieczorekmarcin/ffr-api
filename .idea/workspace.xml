@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/service/TenatService.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="src/main/resources/application.properties" />
@@ -147,7 +147,20 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
-              <caret line="101" column="22" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="22" />
+              <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TenatController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+              <folding>
+                <element signature="e#490#491#0" expanded="true" />
+                <element signature="e#541#542#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -191,8 +204,8 @@
       <file leaf-file-name="TenatService.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="74" column="34" lean-forward="true" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+            <state relative-caret-position="513">
+              <caret line="95" column="89" selection-start-line="95" selection-start-column="89" selection-end-line="95" selection-end-column="89" />
               <folding>
                 <element signature="e#853#854#0" expanded="true" />
                 <element signature="e#901#902#0" expanded="true" />
@@ -255,9 +268,9 @@
       <find>calculate</find>
       <find>in</find>
       <find>id</find>
-      <find>update</find>
-      <find>changePropertyStatus</find>
       <find>getId</find>
+      <find>changePropertyStatus</find>
+      <find>update</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -274,7 +287,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/JwtUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/JwtUserFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/repository/UserRepository.java" />
@@ -324,6 +336,7 @@
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/AlertService.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/BillService.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/InvoiceService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java" />
         <option value="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java" />
       </list>
     </option>
@@ -924,7 +937,7 @@
       <workItem from="1557993210496" duration="42000" />
       <workItem from="1558038028011" duration="1818000" />
       <workItem from="1558094631568" duration="43000" />
-      <workItem from="1558206951886" duration="22736000" />
+      <workItem from="1558206951886" duration="23783000" />
     </task>
     <servers />
   </component>
@@ -961,7 +974,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="246749000" />
+    <option name="totallyTimeSpent" value="247796000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1863" height="1092" extended-state="6" />
@@ -985,10 +998,10 @@
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32924336" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49973133" visible="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49973133" visible="true" weight="0.32991803" />
       <window_info anchor="bottom" id="Spring" order="7" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24879098" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24879098" />
       <window_info anchor="right" id="Bean Validation" order="8" />
       <window_info id="Web" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
@@ -1066,13 +1079,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="32" column="14" lean-forward="true" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1353,13 +1359,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="101" column="22" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/model/Property.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1511,10 +1510,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/PropertyController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="101" column="35" selection-start-line="101" selection-start-column="35" selection-end-line="101" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/TenatController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+          <folding>
+            <element signature="e#490#491#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/TenatService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="74" column="34" lean-forward="true" selection-start-line="74" selection-start-column="34" selection-end-line="74" selection-end-column="34" />
+        <state relative-caret-position="513">
+          <caret line="95" column="89" selection-start-line="95" selection-start-column="89" selection-end-line="95" selection-end-column="89" />
           <folding>
             <element signature="e#853#854#0" expanded="true" />
             <element signature="e#901#902#0" expanded="true" />

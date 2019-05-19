@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.cdv.ffr.model.Tenat;
 import pl.cdv.ffr.service.TenatService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -25,8 +26,8 @@ public class TenatController {
     }
 
     @RequestMapping(path = "/tenats", method = RequestMethod.POST)
-    public Tenat createTenat(@RequestBody Tenat property) {
-        return tenatService.createTenat(property);
+    public Tenat createTenat(HttpServletRequest request, @RequestBody Tenat property) {
+        return tenatService.createTenat(request, property);
     }
 
     @RequestMapping(path = "/tenats/{id}", method = RequestMethod.PUT)

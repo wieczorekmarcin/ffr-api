@@ -9,6 +9,7 @@ import pl.cdv.ffr.repository.PropertyRepository;
 import pl.cdv.ffr.repository.TenatRepository;
 import pl.cdv.ffr.repository.UserRepository;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -29,6 +30,9 @@ public class TenatService extends BaseService {
     @Autowired
     PropertyRepository propertyRepository;
 
+    @Autowired
+    PropertyService propertyService;
+
     public List<Tenat> findAllTenats() {
         return (List<Tenat>) filterByVisible(tenatRepository.findAll());
     }
@@ -38,7 +42,7 @@ public class TenatService extends BaseService {
         return byId.get();
     }
 
-    public Tenat createTenat(Tenat tenat) {
+    public Tenat createTenat(HttpServletRequest request, Tenat tenat) {
         User user = new User();
         user.setFirstname(tenat.getFirstName());
         user.setLastname(tenat.getLastName());
@@ -60,7 +64,7 @@ public class TenatService extends BaseService {
 
         Tenat toReturn = tenatRepository.save(tenat);
 
-        changePropertyStatus(toReturn);
+        changePropertyStatus(request, toReturn);
 
         return toReturn;
     }
@@ -83,13 +87,13 @@ public class TenatService extends BaseService {
         tenatRepository.deleteById(Long.parseLong(id));
     }
 
-    private void changePropertyStatus(Tenat tenat) {
+    private void changePropertyStatus(HttpServletRequest request,Tenat tenat) {
         Property property = tenat.getProperty();
         if (property == null) {
             return;
         } else {
             property.setPropertyStatus(PropertyStatus.RENTED);
-            propertyRepository.save(property);
+            propertyService.updateProperty(request, property, property.getId().toString());
         }
     }
 }
