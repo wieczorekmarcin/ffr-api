@@ -172,15 +172,13 @@ public class BillService extends BaseService {
                 }
             }
 
-            if (lastStatuses.isEmpty() || lastStatuses.contains(null)) {
-                throw new UsernameNotFoundException("User " + user.getEmail() + " has no any defined bill status");
+            String lastStatus = "0";
+            if (!lastStatuses.isEmpty()) {
+                lastStatus = lastStatuses.stream()
+                        .sorted(Comparator.reverseOrder())
+                        .findFirst()
+                        .get();
             }
-
-            String lastStatus = lastStatuses.stream()
-                    .sorted(Comparator.reverseOrder())
-                    .findFirst()
-                    .get();
-
 
             Double used = Double.parseDouble(status) - Double.parseDouble(lastStatus);
             Double amount = used * Double.parseDouble(rate);
