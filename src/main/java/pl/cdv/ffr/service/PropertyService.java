@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import pl.cdv.ffr.model.JwtUser;
-import pl.cdv.ffr.model.Property;
-import pl.cdv.ffr.model.PropertyStatus;
-import pl.cdv.ffr.model.User;
+import pl.cdv.ffr.model.*;
 import pl.cdv.ffr.repository.PropertyRepository;
 import pl.cdv.ffr.repository.UserRepository;
 import pl.cdv.ffr.utils.ftp.FTPHelper;
@@ -46,6 +43,7 @@ public class PropertyService extends BaseService {
         } else {
             properties.add(user.getTenat().getProperty());
         }
+        properties = (List<Property>) filterByVisible(properties);
         return properties;
     }
 
@@ -57,7 +55,7 @@ public class PropertyService extends BaseService {
         } else {
             properties.add(user.getTenat().getProperty());
         }
-
+        properties = (List<Property>) filterByVisible(properties);
         return properties.stream()
                 .filter(property -> property.getId() == Long.parseLong(id))
                 .findFirst()
@@ -72,7 +70,7 @@ public class PropertyService extends BaseService {
         } else {
             properties.add(user.getTenat().getProperty());
         }
-
+        properties = (List<Property>) filterByVisible(properties);
         return properties.stream()
                 .filter(property -> property.getPropertyStatus() == propertyStatus)
                 .collect(Collectors.toList());

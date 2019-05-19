@@ -36,7 +36,9 @@ public class BillService extends BaseService {
             user.getRentier().getProperties().forEach(p -> {
                 if (p.getId() == Long.parseLong(property_ID)) {
                     p.getBills().forEach(b -> {
-                        bills.add(b);
+                        if (b.isVisible()) {
+                            bills.add(b);
+                        }
                     });
                 }
             });
@@ -44,7 +46,9 @@ public class BillService extends BaseService {
             Property tenatProperty = user.getTenat().getProperty();
             if (tenatProperty != null && tenatProperty.getId() == Long.parseLong(property_ID)) {
                 tenatProperty.getBills().forEach(b -> {
-                    bills.add(b);
+                    if (b.isVisible()) {
+                        bills.add(b);
+                    }
                 });
             }
         }
@@ -57,7 +61,7 @@ public class BillService extends BaseService {
             for (Property property : user.getRentier().getProperties()) {
                 if (property.getId() == Long.parseLong(property_ID)) {
                     for (Bill bill : property.getBills()) {
-                        if (bill.getId() == Long.parseLong(bill_ID)) {
+                        if (bill.getId() == Long.parseLong(bill_ID) && bill.isVisible()) {
                             return bill;
                         }
                     }
@@ -66,7 +70,7 @@ public class BillService extends BaseService {
         } else {
             if (user.getTenat().getProperty().getId() == Long.parseLong(property_ID)) {
                 for (Bill bill : user.getTenat().getProperty().getBills()) {
-                    if (bill.getId() == Long.parseLong(bill_ID)) {
+                    if (bill.getId() == Long.parseLong(bill_ID) && bill.isVisible()) {
                         return bill;
                     }
                 }

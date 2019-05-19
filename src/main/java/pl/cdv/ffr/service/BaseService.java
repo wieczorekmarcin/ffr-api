@@ -6,11 +6,14 @@ import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import pl.cdv.ffr.model.BaseEntity;
 import pl.cdv.ffr.model.JwtUser;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class BaseService {
@@ -44,5 +47,11 @@ public class BaseService {
         ServletRequestAttributes sra = (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest req = sra.getRequest();
         return req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + req.getContextPath();
+    }
+
+    public List<? extends BaseEntity> filterByVisible(List<? extends BaseEntity> enities) {
+        return enities.stream()
+                .filter(e -> e.isVisible() == true)
+                .collect(Collectors.toList());
     }
 }

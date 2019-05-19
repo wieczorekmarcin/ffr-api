@@ -37,7 +37,9 @@ public class AlertService extends BaseService {
             user.getRentier().getProperties().forEach(p -> {
                 if (p.getId() == Long.parseLong(property_ID)) {
                     p.getAlerts().forEach(a -> {
-                        alerts.add(a);
+                        if (a.isVisible()) {
+                            alerts.add(a);
+                        }
                     });
                 }
             });
@@ -45,7 +47,9 @@ public class AlertService extends BaseService {
             Property tenatProperty = user.getTenat().getProperty();
             if (tenatProperty != null && tenatProperty.getId() == Long.parseLong(property_ID)) {
                 tenatProperty.getAlerts().forEach(a -> {
-                    alerts.add(a);
+                    if (a.isVisible()) {
+                        alerts.add(a);
+                    }
                 });
             }
         }
@@ -58,7 +62,7 @@ public class AlertService extends BaseService {
             for (Property property : user.getRentier().getProperties()) {
                 if (property.getId() == Long.parseLong(property_ID)) {
                     for (Alert alert : property.getAlerts()) {
-                        if (alert.getId() == Long.parseLong(alert_id)) {
+                        if (alert.getId() == Long.parseLong(alert_id) && alert.isVisible()) {
                             return alert;
                         }
                     }
@@ -67,7 +71,7 @@ public class AlertService extends BaseService {
         } else {
             if (user.getTenat().getProperty().getId() == Long.parseLong(property_ID)) {
                 for (Alert alert : user.getTenat().getProperty().getAlerts()) {
-                    if (alert.getId() == Long.parseLong(alert_id)) {
+                    if (alert.getId() == Long.parseLong(alert_id) && alert.isVisible()) {
                         return alert;
                     }
                 }

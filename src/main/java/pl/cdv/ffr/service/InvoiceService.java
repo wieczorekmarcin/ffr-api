@@ -53,7 +53,9 @@ public class InvoiceService extends BaseService {
             user.getRentier().getProperties().forEach(p -> {
                 if (p.getId() == Long.parseLong(property_ID)) {
                     p.getInvoices().forEach(b -> {
-                        invoices.add(b);
+                        if (b.isVisible()) {
+                            invoices.add(b);
+                        }
                     });
                 }
             });
@@ -61,7 +63,9 @@ public class InvoiceService extends BaseService {
             Property tenatProperty = user.getTenat().getProperty();
             if (tenatProperty != null && tenatProperty.getId() == Long.parseLong(property_ID)) {
                 tenatProperty.getInvoices().forEach(b -> {
-                    invoices.add(b);
+                    if (b.isVisible()) {
+                        invoices.add(b);
+                    }
                 });
             }
         }
@@ -74,7 +78,7 @@ public class InvoiceService extends BaseService {
             for (Property property : user.getRentier().getProperties()) {
                 if (property.getId() == Long.parseLong(property_ID)) {
                     for (Invoice invoice : property.getInvoices()) {
-                        if (invoice.getId() == Long.parseLong(invoice_ID)) {
+                        if (invoice.getId() == Long.parseLong(invoice_ID) && invoice.isVisible()) {
                             return invoice;
                         }
                     }
@@ -83,7 +87,7 @@ public class InvoiceService extends BaseService {
         } else {
             if (user.getTenat().getProperty().getId() == Long.parseLong(property_ID)) {
                 for (Invoice invoice : user.getTenat().getProperty().getInvoices()) {
-                    if (invoice.getId() == Long.parseLong(invoice_ID)) {
+                    if (invoice.getId() == Long.parseLong(invoice_ID) && invoice.isVisible()) {
                         return invoice;
                     }
                 }
