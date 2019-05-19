@@ -10,6 +10,8 @@ public class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private boolean visible = true;
+
     public BaseEntity() {
     }
 
@@ -19,5 +21,13 @@ public class BaseEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
