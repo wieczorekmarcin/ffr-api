@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/utils/PdfGenaratorUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/cdv/ffr/utils/PdfGenaratorUtil.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="src/main/resources/application.properties" />
@@ -73,8 +71,8 @@
       <file leaf-file-name="PdfGenaratorUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="49" column="74" selection-start-line="49" selection-start-column="74" selection-end-line="49" selection-end-column="74" />
+            <state relative-caret-position="295">
+              <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -820,7 +818,7 @@
       <workItem from="1557993210496" duration="42000" />
       <workItem from="1558038028011" duration="1818000" />
       <workItem from="1558094631568" duration="43000" />
-      <workItem from="1558206951886" duration="14453000" />
+      <workItem from="1558206951886" duration="14836000" />
     </task>
     <servers />
   </component>
@@ -857,7 +855,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="238466000" />
+    <option name="totallyTimeSpent" value="238849000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="58" y="-11" width="1863" height="1092" extended-state="6" />
@@ -873,9 +871,9 @@
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40471312" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.40471312" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info active="true" anchor="bottom" id="Messages" order="12" visible="true" weight="0.32991803" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32991803" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info id="Image Layers" order="3" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" />
@@ -936,12 +934,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java</url>
-          <line>44</line>
+          <line>43</line>
           <properties />
           <option name="timeStamp" value="40" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java</url>
+          <line>44</line>
+          <properties />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="41" />
+      <option name="time" value="42" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -1243,13 +1247,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/xhtmlrenderer/flying-saucer-pdf-itext5/9.1.16/flying-saucer-pdf-itext5-9.1.16.jar!/org/xhtmlrenderer/pdf/ITextFontResolver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="184" column="35" selection-start-line="184" selection-start-column="31" selection-end-line="184" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/service/JwtUserDetailsService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -1299,10 +1296,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/xhtmlrenderer/flying-saucer-pdf-itext5/9.1.16/flying-saucer-pdf-itext5-9.1.16.jar!/org/xhtmlrenderer/pdf/ITextFontResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="186" column="5" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="49" column="74" selection-start-line="49" selection-start-column="74" selection-end-line="49" selection-end-column="74" />
+        <state relative-caret-position="295">
+          <caret line="50" column="30" lean-forward="true" selection-start-line="50" selection-start-column="30" selection-end-line="50" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

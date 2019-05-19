@@ -42,14 +42,9 @@ public class PdfGenaratorUtil {
 
         String processedHtml = templateEngine.process(templateName, ctx);
         ByteArrayOutputStream os = new ByteArrayOutputStream();
-        ClassLoader cl = this.getClass().getClassLoader();
-
-        //URL font = Thread.currentThread().getContextClassLoader().getResource("static/fonts/Lato-Regular.ttf");
-
-        String fontPath = cl.getResource("static/fonts/Lato-Regular.ttf").getPath();
         try {
             ITextRenderer renderer = new ITextRenderer();
-            renderer.getFontResolver().addFont(fontPath,
+            renderer.getFontResolver().addFont("http://wieczorekmarcin.usermd.net/ffr/fonts/Lato-Regular.ttf",
                     BaseFont.IDENTITY_H,
                     BaseFont.NOT_EMBEDDED);
             renderer.setDocumentFromString(processedHtml);
