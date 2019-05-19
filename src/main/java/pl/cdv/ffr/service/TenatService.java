@@ -60,7 +60,7 @@ public class TenatService extends BaseService {
 
         Tenat toReturn = tenatRepository.save(tenat);
 
-        //changePropertyStatus(tenat);
+        changePropertyStatus(toReturn);
 
         return toReturn;
     }
@@ -69,7 +69,7 @@ public class TenatService extends BaseService {
         return tenatRepository.findById(Long.parseLong(id))
                 .map(tenat -> {
                     copyNonNullProperties(newTenat, tenat);
-                    //changePropertyStatus(tenat);
+                    //changePropertyStatus(newTenat);
                     return tenatRepository.save(tenat);
                 })
                 .orElseGet(() -> {
