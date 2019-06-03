@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Stream;
 
 @Service
 public class AlertService extends BaseService {
@@ -85,10 +86,18 @@ public class AlertService extends BaseService {
         alert.setCreatedDate(new Date().toString());
         alertRepository.save(alert);
 
-        Property property = user.getRentier().getProperties().stream()
-                .filter(p -> p.getId() == Long.parseLong(property_ID))
-                .findFirst()
-                .get();
+        Property property;
+        if (isRentier(user)) {
+            property = user.getRentier().getProperties().stream()
+                    .filter(p -> p.getId() == Long.parseLong(property_ID))
+                    .findFirst()
+                    .get();
+        } else {
+            property = Stream.of(user.getTenat().getProperty())
+                    .filter(p -> p.getId() == Long.parseLong(property_ID))
+                    .findFirst()
+                    .get();
+        }
 
         List<Alert> alerts = property.getAlerts();
         alerts.add(alert);
@@ -101,10 +110,18 @@ public class AlertService extends BaseService {
 
     public Alert updatePropertyAlert(HttpServletRequest request, String property_ID, String alert_id, Alert newAlert) {
         JwtUser user = userService.getUserInfo(request, tokenHeader);
-        Property property = user.getRentier().getProperties().stream()
-                .filter(p -> p.getId() == Long.parseLong(property_ID))
-                .findFirst()
-                .get();
+        Property property;
+        if (isRentier(user)) {
+            property = user.getRentier().getProperties().stream()
+                    .filter(p -> p.getId() == Long.parseLong(property_ID))
+                    .findFirst()
+                    .get();
+        } else {
+            property = Stream.of(user.getTenat().getProperty())
+                    .filter(p -> p.getId() == Long.parseLong(property_ID))
+                    .findFirst()
+                    .get();
+        }
 
         return  property.getAlerts().stream()
                 .filter(a -> a.getId() == Long.parseLong(alert_id))
