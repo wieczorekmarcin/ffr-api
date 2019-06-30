@@ -6,6 +6,7 @@
     <ignored path="src/main/resources/application.properties" />
     <ignored mask=".idea" />
     <ignored mask=".DS_Store" />
+    <ignored mask="application.properties" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -827,7 +828,7 @@
       <workItem from="1559900794948" duration="608000" />
       <workItem from="1561492534537" duration="602000" />
       <workItem from="1561530497613" duration="41000" />
-      <workItem from="1561923957177" duration="1584000" />
+      <workItem from="1561923957177" duration="1663000" />
     </task>
     <servers />
   </component>
@@ -864,7 +865,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255324000" />
+    <option name="totallyTimeSpent" value="255403000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
