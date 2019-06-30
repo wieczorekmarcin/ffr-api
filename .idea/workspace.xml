@@ -1,20 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/config/WebSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/config/WebSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/controller/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/JwtAuthenticationEntryPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/JwtTokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/JwtTokenUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/cdv/ffr/utils/PdfGenaratorUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/cdv/ffr/FfrApiApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/cdv/ffr/FfrApiApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/cdv/ffr/JwtTokenUtilTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/cdv/ffr/JwtTokenUtilTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/pl/cdv/ffr/model/UserDetailsDummy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pl/cdv/ffr/model/UserDetailsDummy.java" afterDir="false" />
-    </list>
+    <list default="true" id="3dd40781-0bac-4dfe-a001-f625fe292c53" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="src/main/resources/application.properties" />
+    <ignored mask=".idea" />
+    <ignored mask=".DS_Store" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -836,7 +827,7 @@
       <workItem from="1559900794948" duration="608000" />
       <workItem from="1561492534537" duration="602000" />
       <workItem from="1561530497613" duration="41000" />
-      <workItem from="1561923957177" duration="1158000" />
+      <workItem from="1561923957177" duration="1584000" />
     </task>
     <servers />
   </component>
@@ -873,7 +864,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254898000" />
+    <option name="totallyTimeSpent" value="255324000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="59" y="-4" width="1861" height="1084" extended-state="6" />
