@@ -1,21 +1,28 @@
-# Ignore Mac system files
-.DS_store
-
-# Ignore node_modules folder
-node_modules
-
-# Ignore all text files
-*.txt
-
-# Ignore files related to API keys
-.env
-
-# Ignore SASS config files
-.sass-cache
-
-# IntelliJ
-.idea
-
-# Spring
-application.properties
+bin
+build
+log
 target
+.settings
+.project
+.classpath
+.factorypath
+.apt_generated
+*.launch
+*.iml
+.gradle
+.idea
+out
+*.ipr
+*.iws
+Gruntfile.js
+package.json
+node_modules/
+log
+*~
+/.nb-gradle/
+.nb-gradle-properties
+/shop-web/nbproject/*
+/shop-admin/nbproject/*
+nbproject
+.sass-cache
+.tscache
