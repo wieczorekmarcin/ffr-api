@@ -36,7 +36,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtUserDetailsService jwtUserDetailsService;
 
-    // Custom JWT based security filter
     @Autowired
     JwtAuthorizationTokenFilter authenticationTokenFilter;
 
@@ -106,7 +105,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        // AuthenticationTokenFilter will ignore the below paths
         web
             .ignoring()
             .antMatchers(

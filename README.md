@@ -12,5 +12,5 @@
 
 I'm using [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) to encode passwords.
 
-#### Inspiration 
+#### Inspiration for JWT
 https://www.toptal.com/java/rest-security-with-jwt-spring-security-and-java

@@ -40,7 +40,7 @@ public class JwtTokenUtilTest {
     }
 
     @Test
-    public void testGenerateTokenGeneratesDifferentTokensForDifferentCreationDates() throws Exception {
+    public void generatesDifferentTokensForDifferentCreationDates() throws Exception {
         when(clockMock.now())
             .thenReturn(DateUtil.yesterday())
             .thenReturn(DateUtil.now());

@@ -11,6 +11,5 @@ public class FfrApiApplicationTest {
 
     @Test
     public void contextLoads() {
-        // just test if the application context loads
     }
 }
