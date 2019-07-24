@@ -63,7 +63,7 @@ public class User extends BaseEntity {
             inverseJoinColumns = {@JoinColumn(name = "RENTIER_ID", referencedColumnName = "ID")})
     private Rentier rentier;
 
-    @OneToOne(cascade=CascadeType.MERGE)
+    @OneToOne(cascade=CascadeType.ALL)
     @JoinTable(
             name = "USER_TENAT",
             joinColumns = {@JoinColumn(name = "USER_ID", referencedColumnName = "ID")},
