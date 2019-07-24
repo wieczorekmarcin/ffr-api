@@ -12,7 +12,6 @@ import pl.cdv.ffr.repository.PropertyRepository;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -83,7 +82,7 @@ public class AlertService extends BaseService {
 
     public Alert createPropertyAlert(HttpServletRequest request, String property_ID, Alert alert) {
         JwtUser user = userService.getUserInfo(request, tokenHeader);
-        alert.setCreatedDate(new Date().toString());
+        alert.setCreatedDate(getCurrentDate());
         alertRepository.save(alert);
 
         Property property;

@@ -210,7 +210,7 @@ public class InvoiceService extends BaseService {
         data.put("sumTax", sumTax.toString());
         data.put("sumTaxed", sumTaxed.toString());
         data.put("sumNonTaxed", sumNonTaxed.toString());
-        data.put("date", new SimpleDateFormat("dd/MM/yyyy").format(new Date()));
+        data.put("date", getCurrentDate());
 
         Calendar cal = Calendar.getInstance();
         cal.add(Calendar.MONTH, 1);
@@ -228,7 +228,7 @@ public class InvoiceService extends BaseService {
         }
 
         Invoice invoice = new Invoice();
-        invoice.setDate(new Date().toString());
+        invoice.setDate(getCurrentDate());
         invoice.setInvoiceType(InvoiceType.NOT_PAID);
         invoice.setInvoiceUrl(fileUrl);
 

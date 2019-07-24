@@ -10,6 +10,9 @@ import pl.cdv.ffr.model.BaseEntity;
 import pl.cdv.ffr.model.JwtUser;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -53,5 +56,11 @@ public class BaseService {
         return enities.stream()
                 .filter(e -> e.isVisible() == true)
                 .collect(Collectors.toList());
+    }
+
+    public String getCurrentDate() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+        return dateFormat.format(date);
     }
 }
