@@ -60,6 +60,7 @@ public class TenatService extends BaseService {
         user.setPassword(hashedPassword);
 
         user.setUserType(UserType.TENAT);
+        user.setTenat(tenat);
         userRepository.save(user);
 
         Tenat toReturn = tenatRepository.save(tenat);
